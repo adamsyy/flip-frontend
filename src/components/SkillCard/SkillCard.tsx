@@ -25,8 +25,9 @@ export const SkillCard: React.FC<SkillCardProps> = ({
   isVisible,
   offset 
 }) => {
+  const baseRotation = -4;
   const cardStyle: CSSProperties = {
-    transform: `translateX(${offset}px) scale(${1 - Math.abs(offset) * 0.001})`,
+    transform: `translateX(${offset}px) scale(${1 - Math.abs(offset) * 0.001}) rotate(${baseRotation}deg)`,
     opacity: isVisible ? 1 : 0,
     zIndex: 100 - index,
   };
@@ -36,6 +37,7 @@ export const SkillCard: React.FC<SkillCardProps> = ({
       <div className={styles.card}>
         <div className={styles.imageContainer}>
           <img src={avatar} alt={name} className={styles.profileImage} />
+          <span className={styles.statusBadge}>Verified Creator</span>
           <div className={styles.overlay}></div>
         </div>
         

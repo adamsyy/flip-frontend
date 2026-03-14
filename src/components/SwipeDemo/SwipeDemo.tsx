@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { SkillCard } from '../SkillCard/SkillCard';
 import styles from './SwipeDemo.module.css';
 
@@ -16,23 +16,61 @@ export const SwipeDemo: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
+  const autoSwipeTimerRef = useRef<NodeJS.Timeout | null>(null);
 
-  const handleSwipe = (direction: 'left' | 'right') => {
+  const scrollToWaitlist = () => {
+    const element = document.getElementById('waitlist');
+    element?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const performSwipe = (direction: 'left' | 'right') => {
     setOffset(direction === 'right' ? 500 : -500);
     setTimeout(() => {
       setCurrentIndex((prev) => (prev + 1) % mockCards.length);
       setOffset(0);
-    }, 300);
+    }, 600);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (autoSwipeTimerRef.current) {
+        clearInterval(autoSwipeTimerRef.current);
+      }
+    };
+  }, []);
+
+  const handleSwipe = (direction: 'left' | 'right') => {
+    if (autoSwipeTimerRef.current) {
+      clearInterval(autoSwipeTimerRef.current);
+    }
+    performSwipe(direction);
   };
 
   const handleMouseDown = (e: React.MouseEvent) => {
+    if (autoSwipeTimerRef.current) {
+      clearInterval(autoSwipeTimerRef.current);
+    }
     setIsDragging(true);
     setStartX(e.clientX);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (autoSwipeTimerRef.current) {
+      clearInterval(autoSwipeTimerRef.current);
+    }
+    setIsDragging(true);
+    setStartX(e.touches[0].clientX);
   };
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!isDragging) return;
     const diff = e.clientX - startX;
+    setOffset(diff);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging) return;
+    const diff = e.touches[0].clientX - startX;
     setOffset(diff);
   };
 
@@ -48,12 +86,26 @@ export const SwipeDemo: React.FC = () => {
     }
   };
 
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (!isDragging) return;
+    setIsDragging(false);
+    const diff = e.changedTouches[0].clientX - startX;
+    
+    if (Math.abs(diff) > 50) {
+      handleSwipe(diff > 0 ? 'right' : 'left');
+    } else {
+      setOffset(0);
+    }
+  };
+
   return (
     <section className={styles.swipeDemo}>
       <div className={styles.container}>
         <div className={styles.header}>
-          <p className={styles.subheading}>Our Approach</p>
-          <h2>Swap your <span className={styles.highlighted}>skill.</span></h2>
+          <h2>
+            Find your people.
+            <br />Trade your craft.
+          </h2>
         </div>
 {/* 
         <div className={styles.decorativeWrapper}>
@@ -61,10 +113,14 @@ export const SwipeDemo: React.FC = () => {
         </div> */}
         
         <div className={styles.leftContent}>
+   
           <p className={styles.description}>
-            Swipe to meet people in Bangalore who want to swap skills. You teach guitar, 
-            they teach pottery. Simple, social, and actually useful—no awkward small talk required.
+            Swap skills with creators in Bengaluru who actually know their craft. No videos. Just real people, real skills, real growth.
           </p>
+          <button className={styles.secondaryButton} onClick={scrollToWaitlist}>
+            Join Waitlist
+          </button>
+
         </div>
         
         <div className={styles.content}>
@@ -77,6 +133,9 @@ export const SwipeDemo: React.FC = () => {
               onMouseMove={handleMouseMove}
               onMouseUp={handleMouseUp}
               onMouseLeave={handleMouseUp}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
             >
             {mockCards.map((card, index) => (
                 <SkillCard

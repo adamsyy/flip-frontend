@@ -1,15 +1,16 @@
+import { Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/Navbar/Navbar';
 import { HeroSection } from './components/HeroSection/HeroSection';
 import { WaitlistForm } from './components/WaitlistForm/WaitlistForm';
 import { SwipeDemo } from './components/SwipeDemo/SwipeDemo';
-import AboutSection from './components/AboutSection/AboutSection';
+import { Footer } from './components/Footer/Footer';
+import { CreatorsPage } from './components/CreatorsPage/CreatorsPage';
+import WhyFlip from './pages/WhyFlip/WhyFlip';
 import styles from './App.module.css';
 
-function App() {
+function HomePage() {
   return (
-    <div className={styles.app}>
-      <Navbar />
-
+    <>
       <div id="swipe">
         <SwipeDemo />
       </div>
@@ -19,17 +20,22 @@ function App() {
       <div id="waitlist">
         <WaitlistForm />
       </div>
+    </>
+  );
+}
 
-      <div id="about">
-        <AboutSection />
-      </div>
+function App() {
+  return (
+    <div className={styles.app}>
+      <Navbar />
 
-      {/* Footer */}
-      <footer className={styles.footer}>
-        <div className={styles.container}>
-          <p>&copy; 2026 Flip. Skills are the new social currency.</p>
-        </div>
-      </footer>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/whyFlip" element={<WhyFlip />} />
+        <Route path="/creators" element={<CreatorsPage />} />
+      </Routes>
+
+      <Footer />
     </div>
   );
 }

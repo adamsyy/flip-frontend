@@ -2,10 +2,9 @@ import { useState } from 'react';
 import styles from './WaitlistForm.module.css';
 
 const PREDEFINED_SKILLS = [
-  'Photography', 'Fitness', 'Traveling', 'Dancing', 'Mixology', 'Skateboarding',
+  'Photography', 'Fitness', 'Motorcycle', 'Dancing', 'Mixology', 'Skateboarding',
   'Fashion Styling', 'Gym Training', 'Filmmaking', 'Coffee Culture', 'Makeup',
-  'Music Production', 'Pole Dancing', 'Surfing', 'Aerial Yoga', 'DJing',
-  'Motorcycle Culture', 'Street Art', 'Pilates', 'Vinyl Collecting', 'Gaming'
+  'Music Production', 'Surfing', 'Aerial Yoga', 'DJing', 'Street Art', 'Pilates', 'Vinyl Collecting'
 ];
 
 export const WaitlistForm: React.FC = () => {

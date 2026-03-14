@@ -1,0 +1,280 @@
+.footer {
+  background: #1a1a1a;
+  color: #e8e8e8;
+  padding: 100px 20px 40px;
+  border-top: 1px solid #333;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 100px;
+  align-items: start;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.sectionTitle {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 700;
+  margin: 0;
+}
+
+.locationInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.link {
+  color: #e8e8e8;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+  font-weight: 500;
+}
+
+.link:hover {
+  color: #fff;
+}
+
+.text {
+  font-size: 13px;
+  color: #999;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.mapLink {
+  color: #999;
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  display: inline-block;
+  margin-top: 4px;
+}
+
+.mapLink:hover {
+  color: #fff;
+  transform: translateX(4px);
+}
+
+.subtitle {
+  font-size: 13px;
+  color: #999;
+  margin: 0;
+  line-height: 1.6;
+  max-width: 280px;
+}
+
+.newsletter {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.input {
+  background: #252525;
+  border: 1px solid #333;
+  border-radius: 6px;
+  padding: 12px 14px;
+  font-size: 13px;
+  color: #e8e8e8;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+.input::placeholder {
+  color: #666;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #555;
+  background: #2a2a2a;
+}
+
+.submitBtn {
+  background: #fff;
+  color: #1a1a1a;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.submitBtn:hover {
+  background: #f0f0f0;
+  transform: translateY(-2px);
+}
+
+.social {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.followLabel {
+  font-size: 11px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 700;
+  margin: 0;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 12px;
+}
+
+.socialLink {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #333;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.socialLink:hover {
+  border-color: #fff;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 40px;
+  border-top: 1px solid #333;
+}
+
+.copyright {
+  font-size: 12px;
+  color: #666;
+  margin: 0;
+}
+
+.links {
+  display: flex;
+  gap: 24px;
+}
+
+.footerLink {
+  font-size: 12px;
+  color: #999;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footerLink:hover {
+  color: #fff;
+}
+
+/* Mobile Responsive */
+@media (max-width: 1024px) {
+  .content {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 60px 16px 30px;
+  }
+
+  .container {
+    gap: 40px;
+  }
+
+  .content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .bottom {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .links {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 40px 14px 24px;
+  }
+
+  .container {
+    gap: 30px;
+  }
+
+  .content {
+    gap: 24px;
+  }
+
+  .section {
+    gap: 16px;
+  }
+
+  .sectionTitle {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+  }
+
+  .text {
+    font-size: 12px;
+  }
+
+  .input,
+  .submitBtn {
+    font-size: 12px;
+    padding: 10px 12px;
+  }
+
+  .socialLinks {
+    gap: 8px;
+  }
+
+  .socialLink {
+    width: 32px;
+    height: 32px;
+    font-size: 11px;
+  }
+}

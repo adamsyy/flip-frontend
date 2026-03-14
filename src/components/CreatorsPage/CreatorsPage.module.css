@@ -1,0 +1,403 @@
+.creatorsPage {
+  min-height: 100vh;
+  background: #ffffff;
+  padding: 120px 20px 80px;
+}
+
+.header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 80px;
+}
+
+.title {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 56px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 16px 0;
+  line-height: 1.1;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: #6a6a6a;
+  margin: 0;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+
+.creatorsGrid {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+
+.creatorRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.cardLeft {
+  grid-template-areas: "card description";
+}
+
+.cardRight {
+  grid-template-areas: "description card";
+}
+
+.cardLeft .cardContainer {
+  grid-area: card;
+}
+
+.cardLeft .descriptionContainer {
+  grid-area: description;
+}
+
+.cardRight .cardContainer {
+  grid-area: card;
+}
+
+.cardRight .descriptionContainer {
+  grid-area: description;
+}
+
+.cardContainer {
+  display: flex;
+  justify-content: center;
+  perspective: 1000px;
+}
+
+.card {
+  width: 100%;
+  max-width: 298px;
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.18);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  padding-top: 115%;
+  background: #1a1a1a;
+  overflow: hidden;
+}
+
+.profileImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.statusBadge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #1a1a1a;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent);
+}
+
+.cardContent {
+  padding: 15px;
+}
+
+.headerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.name {
+  font-size: 19px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.skillsContainer {
+  margin-bottom: 20px;
+}
+
+.primarySkill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #1a1a1a;
+  color: #fff;
+  padding: 7px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.skillIcon {
+  font-size: 12px;
+}
+
+.skillTags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.skillTag {
+  background: #f4f4f4;
+  color: #333;
+  padding: 5px 10px;
+  border-radius: 7px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.likeButton {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #1a1a1a;
+  background: #fff;
+  color: #1a1a1a;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 5px;
+}
+
+.likeButton:hover {
+  background: #1a1a1a;
+  color: #fff;
+  transform: scale(1.02);
+}
+
+.likeButton.liked {
+  background: #1a1a1a;
+  color: #fff;
+  border-color: #1a1a1a;
+}
+
+.descriptionContainer {
+  display: flex;
+  align-items: center;
+}
+
+.description {
+  max-width: 550px;
+}
+
+.descTitle {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 42px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 20px 0;
+  line-height: 1.2;
+}
+
+.descText {
+  font-size: 18px;
+  color: #4a4a4a;
+  line-height: 1.7;
+  margin: 0 0 32px 0;
+  font-style: italic;
+}
+
+.age {
+  font-weight: 400;
+  color: #6a6a6a;
+}
+
+.highlightsList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.highlightItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  color: #1a1a1a;
+  line-height: 1.6;
+  font-weight: 500;
+  background: #fafafa;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border-left: 3px solid #1a1a1a;
+  transition: all 0.3s ease;
+}
+
+.highlightItem:hover {
+  background: #f4f4f4;
+  transform: translateX(4px);
+}
+
+.bullet {
+  font-size: 8px;
+  color: #1a1a1a;
+  font-weight: 700;
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  background: #1a1a1a;
+  border-radius: 50%;
+}
+
+/* Mobile Responsive */
+@media (max-width: 1024px) {
+  .creatorsGrid {
+    gap: 80px;
+  }
+
+  .creatorRow {
+    gap: 60px;
+  }
+
+  .descTitle {
+    font-size: 36px;
+  }
+
+  .descText {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .creatorsPage {
+    padding: 100px 20px 60px;
+  }
+
+  .header {
+    margin-bottom: 60px;
+  }
+
+  .title {
+    font-size: 42px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+  }
+
+  .creatorsGrid {
+    gap: 60px;
+  }
+
+  .creatorRow,
+  .cardLeft,
+  .cardRight {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+      "card"
+      "description";
+    gap: 40px;
+  }
+
+  .card {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .descriptionContainer {
+    justify-content: center;
+  }
+
+  .description {
+    text-align: center;
+  }
+
+  .descTitle {
+    font-size: 32px;
+  }
+
+  .descText {
+    font-size: 15px;
+  }
+
+  .achievementsList {
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .creatorsPage {
+    padding: 80px 16px 40px;
+  }
+
+  .title {
+    font-size: 36px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+  }
+
+  .card {
+    max-width: 100%;
+  }
+
+  .cardContent {
+    padding: 20px;
+  }
+
+  .name {
+    font-size: 24px;
+  }
+
+  .descTitle {
+    font-size: 28px;
+  }
+
+  .descText {
+    font-size: 14px;
+  }
+
+  .achievementItem {
+    font-size: 14px;
+  }
+}
