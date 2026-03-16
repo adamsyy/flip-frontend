@@ -49,8 +49,7 @@
   }
   
   /* Hide less critical links on mobile to prevent overlap */
-  .navLinks button:nth-child(2),
-  .navLinks button:nth-child(3) {
+  .navLinks button:nth-child(2) {
     display: none;
   }
 }
