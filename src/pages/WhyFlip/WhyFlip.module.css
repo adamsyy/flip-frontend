@@ -1,0 +1,340 @@
+.page {
+  background-color: #FFFCF9;
+  color: #1a1a1a;
+  min-height: 100vh;
+  padding-top: 60px;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* Hero Section */
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 80px;
+  align-items: center;
+  padding: 32px 0 100px;
+}
+
+.heroContent {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.exclusiveBadge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #d4364f;
+  margin-bottom: 24px;
+}
+
+.hero h1 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 72px;
+  line-height: 1.1;
+  margin-bottom: 32px;
+  font-weight: 700;
+  letter-spacing: -2px;
+}
+
+.hero p {
+  font-size: 20px;
+  line-height: 1.6;
+  color: #444;
+  max-width: 480px;
+  margin-bottom: 40px;
+}
+
+.miniExample {
+  max-width: 500px;
+  margin-top: 64px;
+}
+
+.miniExampleCard {
+  background: #fff;
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.05), 0 40px 80px rgba(0,0,0,0.08);
+  position: relative;
+}
+
+.matchLabel {
+  display: block;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: #999;
+  margin-bottom: 32px;
+  text-transform: uppercase;
+}
+
+.exchangeRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.person {
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 24px;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+}
+
+.skill {
+  font-size: 13px;
+  font-weight: 600;
+  color: #d4364f;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.miniTradeIcon {
+  color: #1a1a1a;
+  font-size: 32px;
+  opacity: 0.15;
+  font-weight: 300;
+}
+
+.heroImageWrapper {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow:
+    0 8px 24px rgba(0,0,0,0.06),
+    0 40px 80px rgba(0,0,0,0.12);
+  opacity: 0;
+  transform: scale(0.95);
+  animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+}
+
+.heroImageWrapper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(255,255,255,0.04) 0%, rgba(0,0,0,0.18) 100%);
+  pointer-events: none;
+  border-radius: 24px;
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.philosophy {
+  padding: 80px 0 120px;
+  border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.sectionHeader h2 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.sectionHeader p {
+  font-size: 18px;
+  color: #666;
+}
+
+.philosophyGrid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 120px;
+  margin-bottom: 200px;
+}
+
+.vignette {
+  grid-column: span 5;
+  position: relative;
+  padding-top: 60px;
+}
+
+.vignetteStaggered {
+  grid-column: 8 / span 5;
+  margin-top: 100px;
+}
+
+.vignetteNumber {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 80px;
+  color: #1a1a1a;
+  opacity: 0.03;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.vignette h3 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 32px;
+  margin-bottom: 24px;
+}
+
+.vignette p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #555;
+  max-width: 360px;
+}
+
+@media (max-width: 768px) {
+  .philosophyGrid {
+    grid-template-columns: 1fr;
+    gap: 80px;
+    margin-bottom: 120px;
+  }
+  
+  .vignette, .vignetteStaggered {
+    grid-column: span 1 !important;
+    margin-top: 0;
+  }
+  
+  .vignetteNumber {
+    font-size: 60px;
+  }
+}
+
+/* Feature Rows (Asymmetrical) */
+.featureRow {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 80px;
+  align-items: center;
+  margin-bottom: 180px;
+}
+
+.featureImage {
+  grid-column: span 7;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow:
+    0 8px 20px rgba(0,0,0,0.06),
+    0 30px 60px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.featureImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 24px;
+}
+
+.featureText {
+  grid-column: span 5;
+}
+
+.featureRowReverse .featureImage {
+  grid-column: 6 / span 7;
+  order: 2;
+}
+
+.featureRowReverse .featureText {
+  grid-column: span 5;
+  order: 1;
+}
+
+.featureText h3 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 40px;
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+.featureText p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: #444;
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 1024px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 48px;
+    padding-top: 40px;
+  }
+  
+  .hero h1 { 
+    font-size: 56px; 
+    margin: 0 auto 24px;
+    max-width: 100%;
+  }
+  
+  .hero p { margin: 0 auto; }
+  
+  .miniExample {
+    margin: 48px auto 0;
+  }
+  
+  .featureRow, .featureRowReverse {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .featureImage, .featureText {
+    grid-column: span 12 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .container { padding: 0 24px; }
+  .hero h1 { font-size: 40px; }
+  .grid { grid-template-columns: 1fr; }
+  .card { grid-column: span 12; }
+  
+  .miniExampleCard {
+    padding: 32px 24px;
+  }
+  
+  .exchangeRow {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .miniTradeIcon {
+    transform: rotate(90deg);
+    margin: 10px 0;
+  }
+  
+  .name { font-size: 20px; }
+  .closing h2 { font-size: 40px; }
+}
+
+@media (max-width: 480px) {
+  .hero h1 { font-size: 36px; }
+  .hero p { font-size: 18px; }
+}

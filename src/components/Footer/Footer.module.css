@@ -130,6 +130,27 @@
   transform: translateY(-2px);
 }
 
+.submitBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.successMsg {
+  font-size: 14px;
+  color: #6fcf97;
+  font-weight: 600;
+  margin: 0;
+  padding: 10px 0;
+}
+
+.errorMsg {
+  font-size: 13px;
+  color: #eb5757;
+  margin: 4px 0 0;
+}
+
+
 .social {
   display: flex;
   flex-direction: column;
@@ -211,7 +232,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .footer {
     padding: 60px 16px 30px;
   }

@@ -2,21 +2,43 @@ import { useState, useRef, useEffect } from 'react';
 import { SkillCard } from '../SkillCard/SkillCard';
 import styles from './SwipeDemo.module.css';
 
-const mockCards = [
-      { id: 1, skills: ['Guitar', 'Music Production', 'Piano'], primarySkill: 'Guitar', avatar: 'https://scontent.fblr24-4.fna.fbcdn.net/v/t39.30808-6/481976898_1199594624869417_4853479793742535583_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_ohc=-1tSkuB85JAQ7kNvwGHgnB_&_nc_oc=AdlGlr6xKxfd9bZy44Htm-g7KmJZjOk169GRVy13KgWSqV7ENZA1cWv-cZ2zakA3VSpuW09UJUvFsfoAOLYRN-Wp&_nc_zt=23&_nc_ht=scontent.fblr24-4.fna&_nc_gid=IJkwiLwuz4kMr99WtounxA&oh=00_Afum2qut5zzVj7Fh_wE9dF27g7vJ1zEkW4-UBS5io70saA&oe=6988A472', name: 'Preety Mukundan', age: 27, bio: "Guitarist who moonlights in music production. Teach me pottery?" },
-  { id: 2, skills: ['Skating', 'street art', 'Djing'], primarySkill: 'Skating', avatar: 'https://vefeast.com/wp-content/uploads/Riya-Shibu-Cute-Photo.jpg', name: 'Riya Shibu', age: 26, bio: "Seriously down for anyone who'll teach me baking instead of my stock-market rants." },
-  { id: 3, skills: ['Photography', 'Web Design', 'Graphic Design'], primarySkill: 'Photography', avatar: 'https://clickinkerala.com/wp-content/uploads/2025/04/Naslen-K-Gafoor-3.jpg', name: 'Nasleen', age: 24, bio: "Coffee-fueled photographer; looking to learn DJing and actual talking skills." },
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:1323';
 
-  { id: 4, skills: ['Yoga', 'Fitness', 'Meditation'], primarySkill: 'Yoga', avatar: 'https://www.gethucinema.com/wp-content/uploads/2022/12/HaniyaNafisa-153.jpg', name: 'Haniya', age: 29, bio: "Fitness coach who loves chai; wants to learn film photography." }
-];
+interface Creator {
+  id: number;
+  name: string;
+  avatar_url: string;
+  skills: string[];
+  primary_skill: string;
+  bio: string;
+  age?: number;
+}
 
 export const SwipeDemo: React.FC = () => {
+  const [cards, setCards] = useState<Creator[]>([]);
+  const [loading, setLoading] = useState(true);
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [offset, setOffset] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
-  const autoSwipeTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const autoSwipeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    fetch(`${API_URL}/creators`)
+      .then(res => res.json())
+      .then(data => {
+        if (Array.isArray(data) && data.length > 0) {
+          setCards(data);
+        }
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Failed to load swipe demo cards:", err);
+        setLoading(false);
+      });
+  }, []);
 
   const scrollToWaitlist = () => {
     const element = document.getElementById('waitlist');
@@ -24,12 +46,14 @@ export const SwipeDemo: React.FC = () => {
   };
 
   const performSwipe = (direction: 'left' | 'right') => {
-    setOffset(direction === 'right' ? 500 : -500);
+    if (cards.length === 0) return;
+    setOffset(direction === 'right' ? 800 : -800);
     setTimeout(() => {
-      setCurrentIndex((prev) => (prev + 1) % mockCards.length);
+      setCurrentIndex((prev) => (prev + 1) % cards.length);
       setOffset(0);
-    }, 600);
+    }, 400);
   };
+
 
   useEffect(() => {
     return () => {
@@ -78,7 +102,7 @@ export const SwipeDemo: React.FC = () => {
     if (!isDragging) return;
     setIsDragging(false);
     const diff = e.clientX - startX;
-    
+
     if (Math.abs(diff) > 50) {
       handleSwipe(diff > 0 ? 'right' : 'left');
     } else {
@@ -90,7 +114,7 @@ export const SwipeDemo: React.FC = () => {
     if (!isDragging) return;
     setIsDragging(false);
     const diff = e.changedTouches[0].clientX - startX;
-    
+
     if (Math.abs(diff) > 50) {
       handleSwipe(diff > 0 ? 'right' : 'left');
     } else {
@@ -100,33 +124,33 @@ export const SwipeDemo: React.FC = () => {
 
   return (
     <section className={styles.swipeDemo}>
-      <div className={styles.container}>
+      <div className={styles.swipeContainer}>
         <div className={styles.header}>
           <h2>
-            Find your people.
-            <br />Trade your craft.
+            Find your people.<br />
+            Trade your craft.
           </h2>
         </div>
-{/* 
+        {/* 
         <div className={styles.decorativeWrapper}>
           <div className={styles.decorativeArrow}>↗</div>
         </div> */}
-        
+
         <div className={styles.leftContent}>
-   
+
           <p className={styles.description}>
-            Swap skills with creators in Bengaluru who actually know their craft. No videos. Just real people, real skills, real growth.
+            Swap skills with creators in Bengaluru who actually know their craft. Just real people, real skills, real growth.
           </p>
           <button className={styles.secondaryButton} onClick={scrollToWaitlist}>
-            Join Waitlist
+            Get Early Access
           </button>
 
         </div>
-        
+
         <div className={styles.content}>
 
           <div className={styles.rightColumn}>
-            <div 
+            <div
               className={styles.cardsContainer}
               ref={containerRef}
               onMouseDown={handleMouseDown}
@@ -137,32 +161,36 @@ export const SwipeDemo: React.FC = () => {
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
             >
-            {mockCards.map((card, index) => (
+              {loading ? (
+                <div className={styles.spinnerWrapper}><div className={styles.spinner}></div></div>
+              ) : cards.length > 0 ? cards.map((card, index) => (
                 <SkillCard
                   key={card.id}
                   id={card.id}
                   skills={card.skills}
-                  primarySkill={card.primarySkill}
-                  avatar={card.avatar}
+                  primarySkill={card.primary_skill}
+                  avatar={card.avatar_url}
                   name={card.name}
                   age={card.age}
                   bio={card.bio}
-                  index={index}
-                  isVisible={index === currentIndex || index === (currentIndex + 1) % mockCards.length}
+                  isTopCard={index === currentIndex}
+                  isNextCard={index === (currentIndex + 1) % cards.length}
                   offset={index === currentIndex ? offset : 0}
                 />
-              ))}
+              )) : (
+                <div style={{ color: '#999' }}>No creators found</div>
+              )}
             </div>
 
             <div className={styles.controls}>
-              <button 
+              <button
                 className={styles.btnReject}
                 onClick={() => handleSwipe('left')}
                 title="Pass"
               >
                 <span>✕</span>
               </button>
-              <button 
+              <button
                 className={styles.btnAccept}
                 onClick={() => handleSwipe('right')}
                 title="Connect"

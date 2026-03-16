@@ -1,7 +1,41 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Footer.module.css';
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:1323';
+
 export const Footer = () => {
+  const [email, setEmail] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleEmailSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setError('');
+
+    try {
+      const res = await fetch(`${API_URL}/waitlist/email`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error || 'Something went wrong');
+      }
+
+      setSuccess(true);
+      setEmail('');
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Failed to join. Try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
@@ -18,30 +52,31 @@ export const Footer = () => {
             </div>
           </div>
 
-          {/* <div className={styles.section}>
-            <h3 className={styles.sectionTitle}>COMMUNITY</h3>
-            <div className={styles.locationInfo}>
-              <a href="mailto:swap@flipyu.in" className={styles.link}>
-                swap@flipyu.in
-              </a>
-
-            </div>
-          </div> */}
-
           {/* Right Section - Newsletter & Social */}
           <div className={styles.section}>
             <h3 className={styles.sectionTitle}>JOIN THE FLIP MOVEMENT</h3>
             <p className={styles.subtitle}>Get early access to skill swaps, creator stories, and community events in Bengaluru.</p>
-            
-            <form className={styles.newsletter}>
-              <input 
-                type="email" 
-                placeholder="Your email for early access" 
-                className={styles.input}
-                required
-              />
-              <button type="submit" className={styles.submitBtn}>Join Waitlist</button>
-            </form>
+
+            {success ? (
+              <p className={styles.successMsg}>🎉 You're on the list!</p>
+            ) : (
+              <form className={styles.newsletter} onSubmit={handleEmailSubmit}>
+                <input
+                  type="email"
+                  placeholder="Your email for early access"
+                  className={styles.input}
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
+                  required
+                  disabled={loading}
+                />
+                <button type="submit" className={styles.submitBtn} disabled={loading}>
+                  {loading ? '...' : 'Join Waitlist'}
+                </button>
+              </form>
+            )}
+
+            {error && <p className={styles.errorMsg}>{error}</p>}
 
             <div className={styles.social}>
               <p className={styles.followLabel}>FOLLOW OUR JOURNEY</p>
@@ -67,12 +102,13 @@ export const Footer = () => {
             &copy; 2026 Flip. Skills are the new social currency.
           </p>
           <div className={styles.links}>
-            <a href="#" className={styles.footerLink}>Privacy</a>
-            <a href="#" className={styles.footerLink}>Terms</a>
-            <a href="#" className={styles.footerLink}>Contact</a>
+            <Link to="/privacy" className={styles.footerLink}>Privacy</Link>
+            <Link to="/terms" className={styles.footerLink}>Terms</Link>
+            <a href="mailto:hello@flipyu.in" className={styles.footerLink}>Contact</a>
           </div>
         </div>
       </div>
     </footer>
   );
 };
+

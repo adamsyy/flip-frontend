@@ -29,7 +29,7 @@ export const Navbar: React.FC = () => {
 
   return (
     <nav className={styles.navbar}>
-      <div className={styles.container}>
+      <div className={styles.navbarContainer}>
         <button className={styles.logo} onClick={() => navigate('/')}>
           <span className={styles.logoText}>Flip</span>
         </button>

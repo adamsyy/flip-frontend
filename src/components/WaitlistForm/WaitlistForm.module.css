@@ -1,6 +1,7 @@
 .waitlist {
-  padding: 80px 20px;
-  background: #fff;
+  padding: 60px 20px;
+  background: #FFFCF9;
+  color: #1a1a1a;
 }
 
 .container {
@@ -9,37 +10,61 @@
 }
 
 .container h2 {
-  font-size: 42px;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 48px;
   font-weight: 700;
   margin-bottom: 12px;
   text-align: center;
-  color: #000;
-  font-family: 'Georgia', 'Times New Roman', serif;
-  letter-spacing: -1px;
+  letter-spacing: -1.5px;
+  line-height: 1.1;
 }
 
 .container > p {
   font-size: 16px;
-  color: #666;
+  color: #444;
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 32px;
   font-weight: 400;
+  line-height: 1.5;
+  max-width: 460px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
+/* Success/Error States */
 .successMessage {
-  background: #e8f5e9;
+  background: #fff;
   color: #2e7d32;
-  padding: 16px;
-  border-radius: 12px;
-  margin-bottom: 24px;
+  padding: 24px;
+  border-radius: 4px;
+  margin-bottom: 40px;
   text-align: center;
   font-weight: 600;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  border: 1px solid rgba(46, 125, 50, 0.1);
+}
+
+.errorMessage {
+  background: #fff;
+  color: #d4364f;
+  padding: 24px;
+  border-radius: 4px;
+  margin-bottom: 40px;
+  text-align: center;
+  font-weight: 600;
+  box-shadow: 0 10px 30px rgba(212, 54, 79, 0.05);
+  border: 1px solid rgba(212, 54, 79, 0.1);
 }
 
 .form {
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 24px;
+  background: #fff;
+  padding: 40px;
+  border-radius: 4px;
+  border: 1px solid rgba(0,0,0,0.04);
+  box-shadow: 0 40px 80px rgba(0,0,0,0.05);
 }
 
 .formGroup {
@@ -48,58 +73,56 @@
 }
 
 .formGroup label {
-  font-size: 13px;
-  font-weight: 700;
-  color: #000;
-  margin-bottom: 10px;
+  font-size: 10px;
+  font-weight: 800;
+  color: #999;
+  margin-bottom: 8px;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 2px;
 }
 
 .formGroup input {
-  padding: 14px 16px;
+  padding: 16px 20px;
   font-size: 16px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background: #fff;
-  transition: all 0.3s ease;
-  font-weight: 400;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  background: #fafafa;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  color: #1a1a1a;
 }
 
 .formGroup input:focus {
   background: white;
-  border-color: #000;
-  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08);
+  border-color: #d4364f;
+  box-shadow: 0 0 0 4px rgba(212, 54, 79, 0.05);
   outline: none;
 }
 
+/* Skills Section */
 .skillsSection {
   display: flex;
   flex-direction: column;
 }
 
 .skillsSection label {
-  font-size: 13px;
-  font-weight: 700;
-  color: #000;
-  margin-bottom: 8px;
+  font-size: 10px;
+  font-weight: 800;
+  color: #999;
+  margin-bottom: 12px;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 2px;
 }
 
 .skillsHint {
   font-size: 12px;
-  color: #999;
-  font-weight: 400;
-  margin-bottom: 12px;
-  text-transform: none;
-  letter-spacing: normal;
+  color: #444;
+  margin-bottom: 16px;
 }
 
 .skillsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 12px;
 }
 
 .skillWrapper {
@@ -108,23 +131,22 @@
 
 .skillTag {
   padding: 10px 12px;
-  background: #f8f8f8;
+  background: #fff;
   color: #666;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 13px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  font-size: 12px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   white-space: nowrap;
   width: 100%;
   display: block;
 }
 
 .skillTag:hover:not(:disabled) {
-  border-color: #000;
-  color: #000;
-  background: #f0f0f0;
+  border-color: #1a1a1a;
+  color: #1a1a1a;
 }
 
 .skillTag:disabled {
@@ -133,151 +155,99 @@
 }
 
 .skillTag.selected {
-  background: #000;
+  background: #1a1a1a;
   color: white;
-  border-color: #000;
+  border-color: #1a1a1a;
 }
 
 .skillTag.primary {
   background: #d4364f;
   color: white;
   border-color: #d4364f;
-  font-weight: 700;
 }
 
 .primaryBtn {
   position: absolute;
-  top: -6px;
-  right: -6px;
-  width: 24px;
-  height: 24px;
+  top: -8px;
+  right: -8px;
+  width: 20px;
+  height: 20px;
   background: #d4364f;
-  color: white;
-  border: 2px solid white;
+  border: 2px solid #fff;
   border-radius: 50%;
-  font-size: 12px;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s ease;
-  padding: 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
 }
 
 .primaryBtn:hover {
-  background: #c0273a;
   transform: scale(1.1);
 }
 
-.primaryBtnActive {
-  background: #d4364f;
-}
-
-
 .submitButton {
-  padding: 14px;
-  background: #000;
+  padding: 20px;
+  background: #1a1a1a;
   color: white;
-  font-size: 14px;
-  font-weight: 700;
-  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 800;
+  border-radius: 4px;
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: 20px;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 2px;
 }
 
-.submitButton:hover {
-  background: #333;
-  transform: translateY(-1px);
+.submitButton:hover:not(:disabled) {
+  background: #d4364f;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(212, 54, 79, 0.2);
+}
+
+.submitButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 @media (max-width: 768px) {
-  .waitlist {
-    padding: 60px 16px;
+  .waitlist { padding: 32px 16px; }
+  .container h2 { font-size: 28px; letter-spacing: -1px; margin-bottom: 8px; }
+  .container > p { margin-bottom: 24px; font-size: 14px; line-height: 1.4; }
+  .form { padding: 24px 16px; gap: 16px; }
+  
+  .formGroup label, .skillsSection label {
+    font-size: 9px;
+    margin-bottom: 6px;
   }
-
-  .container h2 {
-    font-size: 28px;
-    letter-spacing: -0.5px;
-  }
-
-  .container > p {
-    font-size: 15px;
-    margin-bottom: 32px;
-  }
-
-  .form {
-    gap: 20px;
-  }
-
-  .skillsGrid {
-    grid-template-columns: repeat(auto-fill, minmax(85px, 1fr));
-    gap: 8px;
-  }
-
-  .skillTag {
-    padding: 8px 10px;
-    font-size: 12px;
-  }
-
-  .submitButton {
-    padding: 13px;
-    font-size: 13px;
-  }
-}
-
-@media (max-width: 480px) {
-  .waitlist {
-    padding: 40px 16px;
-  }
-
-  .container h2 {
-    font-size: 24px;
-    margin-bottom: 8px;
-  }
-
-  .container > p {
-    font-size: 14px;
-    margin-bottom: 28px;
-  }
-
-  .form {
-    gap: 16px;
-  }
-
-  .formGroup label {
-    font-size: 12px;
-  }
-
+  
   .formGroup input {
     padding: 12px 14px;
     font-size: 15px;
   }
 
-  .skillsSection label {
-    font-size: 12px;
-  }
-
   .skillsHint {
     font-size: 11px;
+    margin-bottom: 12px;
   }
 
   .skillsGrid {
     grid-template-columns: repeat(2, 1fr);
     gap: 8px;
   }
-
+  
   .skillTag {
-    padding: 10px;
+    padding: 10px 8px;
     font-size: 11px;
+    letter-spacing: 0;
+    text-align: center;
   }
+}
 
-  .submitButton {
-    padding: 12px;
-    font-size: 12px;
+@media (max-width: 480px) {
+  .container h2 { font-size: 24px; }
+  .skillsGrid {
+    grid-template-columns: repeat(2, 1fr);
   }
+  .skillTag { padding: 10px 8px; font-size: 11px; }
 }

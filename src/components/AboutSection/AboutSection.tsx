@@ -19,7 +19,7 @@ export default function AboutSection() {
             <div className={styles.profileHeader}>
               <img
                 className={styles.profileImage}
-                src="https://scontent.fblr24-4.fna.fbcdn.net/v/t39.30808-6/481976898_1199594624869417_4853479793742535583_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_ohc=-1tSkuB85JAQ7kNvwGHgnB_&_nc_oc=AdlGlr6xKxfd9bZy44Htm-g7KmJZjOk169GRVy13KgWSqV7ENZA1cWv-cZ2zakA3VSpuW09UJUvFsfoAOLYRN-Wp&_nc_zt=23&_nc_ht=scontent.fblr24-4.fna&_nc_gid=IJkwiLwuz4kMr99WtounxA&oh=00_Afum2qut5zzVj7Fh_wE9dF27g7vJ1zEkW4-UBS5io70saA&oe=6988A472"
+                src="https://preview.redd.it/can-she-succeed-in-the-long-run-in-frame-preity-mukundan-v0-7m4vtw5ajddf1.jpg?width=495&format=pjpg&auto=webp&s=f592957cab8971c98d9cc3962c153c68d4c678f7"
                 alt="Preethi"
               />
               <div className={styles.profileHeaderText}>
@@ -80,15 +80,15 @@ export default function AboutSection() {
             <p className={styles.valuesLabel}>Our Core Belief</p>
             <h3>Real learning happens between real people.</h3>
             <p>
-   
-Skill by skill, trust is built — not through metrics,
-but through shared curiosity.
 
-In a world obsessed with visibility,
-we believe knowledge still matters.
-And real connection matters more.
+              Skill by skill, trust is built — not through metrics,
+              but through shared curiosity.
 
-That’s why Flip exists.
+              In a world obsessed with visibility,
+              we believe knowledge still matters.
+              And real connection matters more.
+
+              That’s why Flip exists.
             </p>
             <p>
               That's why Flip exists.
@@ -115,7 +115,19 @@ That’s why Flip exists.
           <div className={styles.bannerContent}>
             <h3>Made for Namma Bengaluru</h3>
             <p>Where creators trade skills, not followers. Ready to swap?</p>
-            <button className={styles.bannerButton}>Join the Community</button>
+            <button 
+              className={styles.bannerButton}
+              onClick={() => {
+                const element = document.getElementById('waitlist');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                  window.location.href = '/#waitlist';
+                }
+              }}
+            >
+              Join the Community
+            </button>
           </div>
           <div className={styles.bannerImageWrapper}>
             <img

@@ -1,16 +1,20 @@
 .swipeDemo {
-  padding: 100px 20px;
+  padding: 100px 24px 60px;
   background: white;
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
 }
 
-.container {
-  max-width: 1600px;
+.swipeContainer {
+  max-width: 1400px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto auto;
   gap: 40px 80px;
   align-items: center;
+  width: 100%;
 }
 
 .header {
@@ -19,181 +23,42 @@
   position: relative;
   margin-bottom: 16px;
   max-width: 100%;
+  padding-left: 20px;
 }
 
-.subheading {
-  font-size: 12px;
-  color: #999;
-  text-transform: uppercase;
-  letter-spacing: 1.2px;
-  font-weight: 600;
-  margin-bottom: 32px;
-}
-
-.container > .header h2 {
-  font-size: 72px;
+.swipeContainer > .header h2 {
+  font-size: 64px;
   font-weight: 700;
   line-height: 1.15;
   color: #000;
-  font-family: 'Libre Baskerville', 'Georgia', 'Times New Roman', serif;
+  font-family: 'Libre Baskerville', serif;
   letter-spacing: -1.5px;
   margin: 0;
-}
-
-.highlighted {
-  position: relative;
-  display: inline-block;
-}
-
-.highlighted::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 115%;
-  height: 70%;
-  border: 2.5px solid #999;
-  border-radius: 55%;
-  pointer-events: none;
-}
-
-.tagRow {
-  display: flex;
-  gap: 8px;
-  margin: 12px 0 16px;
-  flex-wrap: wrap;
-}
-
-.tag {
-  font-size: 12px;
-  padding: 6px 12px;
-  border-radius: 999px;
-  border: 1px solid #e5e5e5;
-  color: #222;
-  background: #fff;
-  font-weight: 600;
-}
-
-.secondaryButton {
-  background: #000;
-  color: #fff;
-  border: none;
-  border-radius: 999px;
-  padding: 10px 20px;
-  font-size: 13px;
-  font-weight: 700;
-  cursor: pointer;
-  width: fit-content;
-  margin-bottom: 12px;
-}
-
-.secondaryButton:hover {
-  background: #222;
-}
-
-.location {
-  font-size: 12px;
-  color: #888;
-  margin: 0;
-}
-
-.decorativeWrapper {
-  grid-column: 1;
-  grid-row: 2;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.25);
-  align-items: flex-start;
-  height: auto;
-  padding-top: 20px;
-  padding-bottom: 0;
-}
-
-.decorativeArrow {
-  font-size: 48px;
-  color: #999;
-  opacity: 0.5;
-  margin-right: 40px;
 }
 
 .leftContent {
   grid-column: 1;
   grid-row: 2 / 4;
-  max-width: 700px;
-  margin-top: 0;
-  padding-left: 0px;
-  padding-right: 40px;
+  max-width: 600px;
+  padding-left: 20px;
   z-index: 1;
 }
 
 .description {
   font-size: 16px;
-  line-height: 1.7;
-  color: #555;
-  font-weight: 400;
-  margin: 0 0 18px;
-  max-width: 420px;
-}
-
-.pointerList {
-  list-style: none;
-  padding: 0;
-  margin: 16px 0 0 0;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  position: relative;
-}
-
-.pointerList li {
-  font-size: 15px;
-  color: #333;
   line-height: 1.6;
-  padding: 16px 20px 16px 18px;
-  background: #fafafa;
-  border-left: 3px solid #000;
-  border-radius: 0 8px 8px 0;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.03);
-  transition: all 0.25s ease;
-  position: relative;
-  overflow: hidden;
+  color: #555;
+  margin-bottom: 24px;
 }
 
-.pointerList li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background: #000;
-  transition: width 0.25s ease;
-}
-
-.pointerList li:hover {
-  transform: translateX(4px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-  background: #f8f8f8;
-}
-
-.pointerList li:hover::before {
-  width: 4px;
-}
-
-.pointerList strong {
-  display: inline-block;
-  color: #000;
-  font-weight: 700;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  margin-right: 10px;
-  padding: 3px 10px;
+.secondaryButton {
   background: #000;
   color: #fff;
-  border-radius: 3px;
-  position: relative;
-  top: -1px;
+  border-radius: 999px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 700;
+  transition: all 0.3s ease;
 }
 
 .content {
@@ -202,9 +67,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 50px;
   justify-content: center;
-  padding-top: 0;
   z-index: 2;
 }
 
@@ -212,369 +75,172 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 50px;
+  gap: 40px;
   width: 100%;
 }
 
 .cardsContainer {
   position: relative;
-  height: 520px;
+  height: 540px;
   width: 100%;
   max-width: 320px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: grab;
-  user-select: none;
   overflow: visible;
-  contain: layout;
-}
-
-.cardsContainer:active {
-  cursor: grabbing;
 }
 
 .controls {
   display: flex;
-  justify-content: center;
-  align-items: center;
   gap: 40px;
 }
 
-.btnReject,
-.btnAccept {
-  width: 70px;
-  height: 70px;
+.btnReject, .btnAccept {
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   border: none;
+  font-size: 24px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 28px;
-}
-
-.btnReject {
-  background: white;
-  color: #999;
-  border: 2px solid #ddd;
-}
-
-.btnReject:hover {
-  transform: scale(1.12);
-  border-color: #666;
-  color: #666;
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.15);
-}
-
-.btnAccept {
-  background: #000;
-  color: #d4364f;
-  border: none;
-}
-
-.btnAccept:hover {
-  transform: scale(1.12);
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3);
-}
-
-.indicator {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-}
-
-.dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #e0e0e0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   transition: all 0.3s ease;
 }
 
-.dot.active {
-  background: #000;
-  width: 24px;
-  border-radius: 4px;
-}
+.btnReject { background: #fff; color: #999; border: 1px solid #eee; }
+.btnAccept { background: #000; color: #d4364f; }
 
-@media (max-width: 1200px) {
-  .swipeDemo {
-    padding: 60px 20px;
-  }
+/* ─── Responsive ────────────────────────────────────────────────── */
 
-  .container {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
+@media (max-width: 1024px) {
+  .swipeContainer {
     gap: 40px;
-    max-width: 600px;
+    padding: 0 40px;
   }
+  .swipeContainer > .header h2 { font-size: 48px; }
+}
 
-  .header {
-    grid-column: 1;
-    grid-row: 1;
-    margin-bottom: 0;
-    text-align: center;
+@media (min-width: 768px) and (max-width: 1024px) {
+  .swipeDemo {
+    padding: 80px 24px 60px;
   }
-
-  .container > .header h2 {
-    font-size: 48px;
+  .swipeContainer {
+    gap: 20px 30px; /* Tighter grid gap to easily fit 820px widths */
+    padding: 0;
   }
-
+  .swipeContainer > .header h2 { 
+    font-size: 44px; 
+    line-height: 1.1;
+  }
   .leftContent {
-    grid-column: 1;
-    grid-row: 2;
     max-width: 100%;
-    margin-top: 0;
-    padding-right: 0;
-    text-align: center;
+    margin-top: -30px; /* Pull text closer to header */
   }
-
-  .content {
-    grid-column: 1;
-    grid-row: 3;
+  .cardsContainer {
+    width: 320px;
+    max-width: 100%;
+    height: 520px; /* Ensures background matches child wrapper height */
+  }
+  .rightColumn {
+    gap: 20px; /* Pull buttons closer to card on iPad */
+  }
+  .btnReject, .btnAccept {
+    width: 60px;
+    height: 60px;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .swipeDemo {
-    padding: 48px 16px 56px;
+    padding: 60px 0;
+    width: 100vw !important;
+    max-width: 100vw !important;
   }
 
-  .container {
-    gap: 30px;
-    max-width: 100%;
+  .swipeContainer {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 20px !important;
+    gap: 24px !important;
+    align-items: center !important;
   }
 
-  .header {
-    margin-bottom: 20px;
-    margin-top: 24px;
+  .header, .leftContent, .content, .rightColumn {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    text-align: center !important;
+    grid-column: auto !important;
+    grid-row: auto !important;
   }
 
-  .container > .header h2 {
+  .swipeContainer > .header h2 {
     font-size: 36px;
-    line-height: 1.2;
-    letter-spacing: -1px;
-    margin-bottom: 20px;
-  }
-
-  .subheading {
-    font-size: 11px;
-    margin-bottom: 0;
-    display: none;
-  }
-
-  .tagRow {
-    justify-content: center;
-    margin: 12px 0 18px;
-  }
-
-  .leftContent {
-    padding: 0;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-
-  .description {
-    font-size: 14px;
-    line-height: 1.6;
-    max-width: 100%;
-    color: #666;
-    margin: 0 0 16px 0;
-  }
-
-  .secondaryButton {
-    margin: 0 auto 16px auto;
-    padding: 11px 22px;
-    font-size: 13px;
-  }
-
-  .location {
-    text-align: center;
-    font-size: 12px;
-    margin-bottom: 28px;
-  }
-
-  .rightColumn {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding-bottom: 20px;
-    gap: 24px;
   }
 
   .cardsContainer {
-    height: 520px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    margin-bottom: 16px;
-  }
-
-  .controls {
-    display: flex;
-    gap: 32px;
-    justify-content: center;
-    padding-bottom: 0;
-  }
-
-  .btnReject,
-  .btnAccept {
-    width: 52px;
-    height: 52px;
-    font-size: 20px;
-    border-radius: 50%;
-    border: 2px solid #e5e5e5;
-    background: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-
-  .btnReject {
-    color: #999;
-  }
-
-  .btnReject:hover {
-    border-color: #999;
-  }
-
-  .btnAccept {
-    background: #000;
-    border-color: #000;
-    color: white;
-  }
-
-  .btnAccept:hover {
-    background: #222;
-    border-color: #222;
+    height: 480px;
+    max-width: 320px;
+    margin: 0 auto;
   }
 }
 
 @media (max-width: 480px) {
   .swipeDemo {
-    padding: 40px 16px 48px;
+    padding: 60px 0 20px; /* Restored safe top padding to prevent title from clipping */
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100vw !important;
+    overflow: hidden;
   }
 
-  .container {
-    gap: 24px;
+  .swipeContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 24px !important; /* Increased from 12px for more breathing room */
+    padding: 0 16px !important;
   }
 
-  .header {
-    margin-top: 20px;
-    margin-bottom: 16px;
+  .rightColumn {
+    gap: 16px !important; /* Override desktop gap of 40px to let the card sit lower */
   }
 
-  .container > .header h2 {
+  .swipeContainer > .header h2 {
     font-size: 32px;
-    line-height: 1.2;
-    letter-spacing: -0.8px;
-    margin-bottom: 16px;
-  }
-
-  .tagRow {
-    justify-content: center;
-    gap: 8px;
-    margin: 12px 0 16px;
-  }
-
-  .subheading {
-    font-size: 10px;
-    margin-bottom: 0;
-    display: none;
-  }
-
-  .leftContent {
-    margin-bottom: 16px;
-    text-align: center;
-    padding: 0;
   }
 
   .description {
     font-size: 13px;
-    line-height: 1.6;
-    max-width: 100%;
-    color: #666;
-    margin: 0 0 14px 0;
-  }
-
-  .secondaryButton {
-    margin: 0 auto 14px auto;
-    padding: 10px 20px;
-    font-size: 12px;
-  }
-
-  .location {
-    text-align: center;
-    font-size: 11px;
-    margin-bottom: 24px;
-    color: #888;
-  }
-
-  .rightColumn {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding-bottom: 16px;
-    gap: 20px;
+    margin: 8px 0;
   }
 
   .cardsContainer {
-    height: 500px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     position: relative;
-    margin-bottom: 12px;
+    width: 90vw;
+    height: 52vh; /* Further reduced to accommodate larger gaps */
+    min-height: 380px;
+    margin: 20px auto 0; /* Pushed down even further */
   }
-
+  
   .controls {
-    display: flex;
-    gap: 28px;
-    justify-content: center;
-    padding-bottom: 0;
+    padding: 10px 0;
+    gap: 24px;
   }
 
-  .btnReject,
-  .btnAccept {
-    width: 50px;
-    height: 50px;
-    font-size: 18px;
-    border-radius: 50%;
-    border: 2px solid #e5e5e5;
-    background: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-
-  .btnReject {
-    color: #999;
-  }
-
-  .btnReject:hover {
-    border-color: #999;
-  }
-
-  .btnAccept {
-    background: #000;
-    border-color: #000;
-    color: white;
-  }
-
-  .btnAccept:hover {
-    background: #222;
-    border-color: #222;
+  .btnReject, .btnAccept {
+    width: 52px;
+    height: 52px;
+    font-size: 20px;
   }
 }

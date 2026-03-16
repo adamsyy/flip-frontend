@@ -1,0 +1,41 @@
+.container {
+  padding: 120px 24px 80px;
+  max-width: 800px;
+  margin: 0 auto;
+  color: #fff;
+}
+
+.content h1 {
+  font-size: 48px;
+  margin-bottom: 24px;
+}
+
+.lastUpdated {
+  color: #666;
+  margin-bottom: 48px;
+}
+
+.content section {
+  margin-bottom: 40px;
+}
+
+.content h2 {
+  font-size: 24px;
+  margin-bottom: 16px;
+  color: #d4364f;
+}
+
+.content p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+.placeholderNote {
+  margin-top: 80px;
+  padding: 24px;
+  background: #111;
+  border-radius: 12px;
+  border-left: 4px solid #d4364f;
+  font-style: italic;
+}

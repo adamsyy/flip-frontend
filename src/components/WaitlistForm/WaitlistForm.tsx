@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import styles from './WaitlistForm.module.css';
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:1323';
+
 const PREDEFINED_SKILLS = [
   'Photography', 'Fitness', 'Motorcycle', 'Dancing', 'Mixology', 'Skateboarding',
   'Fashion Styling', 'Gym Training', 'Filmmaking', 'Coffee Culture', 'Makeup',
@@ -16,6 +18,8 @@ export const WaitlistForm: React.FC = () => {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -33,10 +37,7 @@ export const WaitlistForm: React.FC = () => {
           primarySkill: prev.primarySkill === skill ? '' : prev.primarySkill
         };
       } else if (skills.length < 3) {
-        return {
-          ...prev,
-          skills: [...skills, skill]
-        };
+        return { ...prev, skills: [...skills, skill] };
       }
       return prev;
     });
@@ -49,11 +50,36 @@ export const WaitlistForm: React.FC = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Waitlist Submission:', formData);
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 5000);
+    setLoading(true);
+    setError('');
+
+    try {
+      const res = await fetch(`${API_URL}/waitlist`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          skills: formData.skills,
+          primary_skill: formData.primarySkill,
+        }),
+      });
+
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error || 'Something went wrong');
+      }
+
+      setSubmitted(true);
+      setFormData({ name: '', email: '', skills: [], primarySkill: '' });
+      setTimeout(() => setSubmitted(false), 5000);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Failed to join waitlist. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -65,6 +91,12 @@ export const WaitlistForm: React.FC = () => {
         {submitted && (
           <div className={styles.successMessage}>
             ✓ Thanks for joining! We'll be in touch soon.
+          </div>
+        )}
+
+        {error && (
+          <div className={styles.errorMessage}>
+            ✕ {error}
           </div>
         )}
 
@@ -94,18 +126,16 @@ export const WaitlistForm: React.FC = () => {
           </div>
 
           <div className={styles.skillsSection}>
-            <label>Skills I Can Teach (Select 3, mark 1 as primary)</label>
+            <label>Skills I Can Teach</label>
             <p className={styles.skillsHint}>Selected: {formData.skills.length}/3</p>
             <div className={styles.skillsGrid}>
               {PREDEFINED_SKILLS.map(skill => (
                 <div key={skill} className={styles.skillWrapper}>
                   <button
                     type="button"
-                    className={`${styles.skillTag} ${
-                      formData.skills.includes(skill) ? styles.selected : ''
-                    } ${
-                      formData.primarySkill === skill ? styles.primary : ''
-                    }`}
+                    className={`${styles.skillTag} ${formData.skills.includes(skill) ? styles.selected : ''
+                      } ${formData.primarySkill === skill ? styles.primary : ''
+                      }`}
                     onClick={() => handleSkillToggle(skill)}
                     disabled={!formData.skills.includes(skill) && formData.skills.length >= 3}
                   >
@@ -118,7 +148,7 @@ export const WaitlistForm: React.FC = () => {
                       onClick={() => setPrimary(skill)}
                       title="Mark as primary"
                     >
-                    
+
                     </button>
                   )}
                 </div>
@@ -126,8 +156,8 @@ export const WaitlistForm: React.FC = () => {
             </div>
           </div>
 
-          <button type="submit" className={styles.submitButton}>
-            Join Waitlist
+          <button type="submit" className={styles.submitButton} disabled={loading}>
+            {loading ? 'Joining…' : 'Join Waitlist'}
           </button>
         </form>
       </div>
