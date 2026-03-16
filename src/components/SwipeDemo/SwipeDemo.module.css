@@ -194,27 +194,27 @@
 
 @media (max-width: 480px) {
   .swipeDemo {
-    padding: 40px 0 20px; /* Slightly reduced top padding to squeeze things in */
+    padding: 85px 0 30px; /* Higher top padding to clear navbar cleanly */
     min-height: 100dvh;
+    height: auto;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Pushes content down properly, never clips top */
+    justify-content: flex-start;
     width: 100vw !important;
-    overflow: hidden;
+    overflow-x: hidden;
   }
 
   .swipeContainer {
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Keeps header anchored at top */
-    gap: 16px !important; /* Slightly tighter base gap */
+    justify-content: flex-start;
+    gap: 32px !important; /* Proper breathing room down the page */
     padding: 0 16px !important;
   }
 
   .rightColumn {
-    gap: 16px !important;
-    margin-top: auto; /* Pushes the card down to fill available space, but without top overflowing */
+    gap: 16px !important; /* Override desktop gap of 40px to let the card sit lower */
   }
 
   .swipeContainer > .header h2 {
@@ -229,9 +229,9 @@
   .cardsContainer {
     position: relative;
     width: 90vw;
-    height: 48vh; /* Scale card to fit screen better on iOS */
-    min-height: 380px;
-    margin: 10px auto 0;
+    max-width: 320px;
+    height: 480px; /* Set fixed sensible height to prevent image cropping */
+    margin: 32px auto 0; /* Breathing room from button */
   }
   
   .controls {

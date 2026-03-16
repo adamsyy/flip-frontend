@@ -150,17 +150,18 @@ export const SwipeDemo: React.FC = () => {
         <div className={styles.content}>
 
           <div className={styles.rightColumn}>
-            <div
-              className={styles.cardsContainer}
-              ref={containerRef}
-              onMouseDown={handleMouseDown}
-              onMouseMove={handleMouseMove}
-              onMouseUp={handleMouseUp}
-              onMouseLeave={handleMouseUp}
-              onTouchStart={handleTouchStart}
-              onTouchMove={handleTouchMove}
-              onTouchEnd={handleTouchEnd}
-            >
+              <div
+                className={styles.cardsContainer}
+                ref={containerRef}
+                onMouseDown={handleMouseDown}
+                onMouseMove={handleMouseMove}
+                onMouseUp={handleMouseUp}
+                onMouseLeave={handleMouseUp}
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
+                onTouchCancel={handleTouchEnd}
+              >
               {loading ? (
                 <div className={styles.spinnerWrapper}><div className={styles.spinner}></div></div>
               ) : cards.length > 0 ? cards.map((card, index) => (
