@@ -306,7 +306,7 @@
   }
   
   .featureImage, .featureText {
-    grid-column: span 12 !important;
+    grid-column: 1 / -1 !important;
   }
 }
 
@@ -314,7 +314,6 @@
   .container { padding: 0 24px; }
   .hero h1 { font-size: 40px; }
   .grid { grid-template-columns: 1fr; }
-  .card { grid-column: span 12; }
   
   .miniExampleCard {
     padding: 32px 24px;
