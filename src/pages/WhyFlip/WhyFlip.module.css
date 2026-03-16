@@ -297,17 +297,21 @@
   .hero p { margin: 0 auto; }
   
   .miniExample {
-    margin: 48px auto 0;
+    margin: 48px auto 60px; /* Reduced gap below the hero */
   }
   
   .featureRow, .featureRowReverse {
     grid-template-columns: 1fr;
     gap: 40px;
+    margin-bottom: 80px; /* Cut massive 180px gap in half */
   }
   
   .featureImage, .featureText {
     grid-column: 1 / -1 !important;
   }
+
+  .featureRowReverse .featureImage { order: 1; }
+  .featureRowReverse .featureText { order: 2; }
 }
 
 @media (max-width: 768px) {
