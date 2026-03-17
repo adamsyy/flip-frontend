@@ -67,7 +67,6 @@ export const CreatorsPage = () => {
       <SEO 
         title="The Collective | Bengaluru's Creative Elite"
         description="Discover talented individuals in Bengaluru's creative community. Connect with verified designers, developers, photographers, and artists for exclusive skill-swapping."
-        image="https://flipyu.in/images/social-hidden/og-creators.png"
       />
       
       <div className={styles.header}>

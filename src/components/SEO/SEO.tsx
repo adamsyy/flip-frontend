@@ -11,7 +11,7 @@ export const SEO: React.FC<SEOProps> = ({
   title,
   description,
   url = 'https://flipyu.in/',
-  image = 'https://flipyu.in/images/social-hidden/og-main.png'
+  image
 }) => {
   const fullTitle = title ? `${title} | Flip` : 'Flip - Swap your skills. Find your people.';
   const fullDescription = description || "Trade a little Kannada for a killer Biryani recipe. No lectures, no 'experts' just humans teaching humans what they know best.";
@@ -47,16 +47,11 @@ export const SEO: React.FC<SEOProps> = ({
       <meta property="og:description" content={fullDescription} />
       <meta property="og:url" content={url} />
       <meta property="og:type" content="website" />
-      <meta property="og:image" content={image} />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
-      <meta property="og:image:alt" content={fullTitle} />
 
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={fullDescription} />
-      <meta name="twitter:image" content={image} />
 
       {/* Structured Data */}
       <script type="application/ld+json">
