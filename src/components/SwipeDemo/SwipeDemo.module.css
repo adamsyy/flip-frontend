@@ -81,7 +81,7 @@
 
 .cardsContainer {
   position: relative;
-  height: 540px;
+  height: 480px;
   width: 100%;
   max-width: 320px;
   display: flex;
@@ -206,7 +206,7 @@
   .cardsContainer {
     width: 320px;
     max-width: 100%;
-    height: 540px; /* Ensures background matches child wrapper height */
+    height: 460px; /* Synchronized with SkillCard */
   }
   .rightColumn {
     gap: 20px; /* Pull buttons closer to card on iPad */
@@ -335,7 +335,7 @@
 
   .cardsContainer {
     max-width: 400px;
-    height: 600px;
+    height: 560px;
   }
 
   .btnReject, .btnAccept {

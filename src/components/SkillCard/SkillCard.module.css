@@ -6,7 +6,7 @@
   bottom: 0;
   margin: auto;
   width: 320px;
-  height: 540px;
+  height: 480px;
   transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.6s ease;
   pointer-events: auto;
   user-select: none;
@@ -32,7 +32,7 @@
   position: relative;
   width: 100%;
   height: 0;
-  padding-top: 90%; /* Reduced from 100% to give more room for bio */
+  padding-top: 95%; /* Adjusted for tighter desktop look */
   overflow: hidden;
   border-bottom: 1px solid #2a2a2a;
 }
@@ -75,7 +75,7 @@
 
 .content {
   flex: 1;
-  padding: 20px;
+  padding: 16px 20px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -158,13 +158,13 @@
 @media (max-width: 900px) {
   .cardWrapper {
     width: 290px;
-    height: 500px;
+    height: 460px;
   }
 }
 
 @media (min-width: 1600px) {
   .cardWrapper {
-    height: 600px; /* Still keep it slightly larger for ultra-wide */
+    height: 560px; /* Still keep it slightly larger for ultra-wide but tighter than before */
   }
 }
 
