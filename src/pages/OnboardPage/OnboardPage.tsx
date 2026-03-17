@@ -159,7 +159,7 @@ export const OnboardPage = () => {
       }}>
         <div className={styles.formGroup}>
           <label>Member Name *</label>
-          <input required type="text" name="name" value={formData.name} onChange={handleInputChange} placeholder="e.g. Preety Mukundan" />
+          <input required type="text" name="name" value={formData.name} onChange={handleInputChange} placeholder="e.g. Riya Sharma" />
         </div>
 
         <div className={styles.formGroup}>
