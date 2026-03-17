@@ -246,7 +246,7 @@
   }
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1600px) {
   .swipeDemo {
     min-height: 100vh;
     display: flex;
