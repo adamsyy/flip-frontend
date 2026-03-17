@@ -1,91 +1,77 @@
 .container {
-  max-width: 800px;
-  margin: 110px auto 100px;
-  padding: 0 20px;
-  min-height: calc(100vh - 210px);
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 160px 24px 120px;
+  min-height: 100vh;
+  background: #FFFCF9; /* Matching the rest of the site */
+  color: #111;
 }
 
 .header {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 120px;
+  animation: fadeIn 1.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .header h1 {
   font-family: 'Libre Baskerville', serif;
-  font-size: 42px;
-  color: #1a1a1a;
-  margin: 0 0 12px 0;
+  font-size: 64px;
+  color: #000;
+  margin: 0 0 24px 0;
+  letter-spacing: -3px;
+  font-weight: 700;
+  line-height: 1.1;
 }
 
 .header p {
   color: #666;
-  font-size: 18px;
-  line-height: 1.6;
+  font-size: 20px;
+  line-height: 1.7;
   margin: 0 auto;
-  max-width: 600px;
+  max-width: 580px;
+  font-weight: 300;
 }
 
 .badgeLine {
-  margin-bottom: 20px;
+  margin-bottom: 32px;
   display: flex;
   justify-content: center;
 }
 
 .exclusiveBadge {
-  background: #1a1a1a;
-  color: #fff;
-  padding: 6px 16px;
-  border-radius: 4px;
+  color: #A38A00; /* Sophisticated Muted Gold */
   font-size: 11px;
   font-weight: 800;
-  letter-spacing: 2px;
-  border: 1px solid rgba(255,255,255,0.1);
-}
-
-.exclusiveSubtext {
-  font-family: 'Inter', sans-serif !important;
-  font-weight: 400;
-  max-width: 500px !important;
-}
-
-.form {
-  background: #fff;
-  padding: 48px;
-  border-radius: 24px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+  letter-spacing: 4px;
+  text-transform: uppercase;
   display: flex;
-  flex-direction: column;
-  gap: 32px;
-  border: 1px solid rgba(0,0,0,0.05);
-  animation: slideUp 0.8s ease-out;
+  align-items: center;
+  gap: 16px;
 }
 
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+.exclusiveBadge::before,
+.exclusiveBadge::after {
+  content: '';
+  width: 30px;
+  height: 1px;
+  background: rgba(163, 138, 0, 0.3);
 }
 
 .whyJoin {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-bottom: 60px;
-  animation: fadeIn 1s ease-out;
+  gap: 48px;
+  margin-bottom: 120px;
+  padding: 0 40px;
 }
 
 .whyCard {
-  background: #fff;
-  padding: 32px 24px;
-  border-radius: 2px;
-  text-align: left;
-  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-  border: 1px solid #f0f0f0;
-}
-
-.whyCard:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 45px rgba(0,0,0,0.1);
-  border-color: #D4AF37;
+  text-align: center;
 }
 
 .whyIcon {
@@ -93,116 +79,114 @@
   text-transform: uppercase;
   font-weight: 800;
   letter-spacing: 2px;
-  color: #D4AF37; /* Luxury Gold */
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.whyIcon::before {
-  content: '✦';
-  font-size: 14px;
+  color: #A38A00;
+  margin-bottom: 16px;
+  display: block;
 }
 
 .whyCard h3 {
-  font-size: 16px;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 18px;
   font-weight: 700;
-  margin-bottom: 8px;
-  color: #1a1a1a;
+  margin-bottom: 12px;
+  color: #000;
 }
 
 .whyCard p {
   font-size: 14px;
-  color: #666;
-  line-height: 1.5;
-  margin: 0;
+  color: #777;
+  line-height: 1.6;
+}
+
+.form {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
 }
 
 .formGroup {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
 }
 
 .formGroup label {
-  font-size: 14px;
-  font-weight: 600;
-  color: #1a1a1a;
+  font-size: 11px;
+  font-weight: 800;
+  color: #555; /* Darkened for visibility */
+  text-transform: uppercase;
+  letter-spacing: 3px;
 }
 
 .formGroup input,
 .formGroup textarea {
-  padding: 14px;
-  border: 1px solid #e5e5e5;
-  border-radius: 8px;
-  font-size: 15px;
-  font-family: 'Inter', sans-serif;
-  transition: all 0.3s ease;
-  background: #fafafa;
+  padding: 12px 0 20px 0;
+  border: none;
+  border-bottom: 2px solid #d0d0d0; /* Thicker and darker line */
+  border-radius: 0;
+  font-size: 24px;
+  font-family: 'Libre Baskerville', serif;
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  background: transparent;
+  color: #000;
+}
+
+.formGroup input::placeholder,
+.formGroup textarea::placeholder {
+  color: #aaa; /* Darkened placeholder */
+  font-style: italic;
+  font-weight: 400;
 }
 
 .formGroup input:focus,
 .formGroup textarea:focus {
   outline: none;
-  border-color: #d4364f;
-  background: #fff;
-  box-shadow: 0 0 0 4px rgba(212, 54, 79, 0.1);
-  transform: scale(1.01);
+  border-bottom-color: #000;
 }
 
 .formGroup input[type="file"] {
-  background: transparent;
-  padding: 10px 0;
   border: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #777;
+  padding: 20px 0;
 }
 
 .skillsInput {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  padding: 10px;
-  border: 1px solid #e5e5e5;
-  border-radius: 8px;
-  background: #fafafa;
+  gap: 12px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #d0d0d0;
 }
 
 .skillsInput input {
   flex: 1;
   min-width: 150px;
-  border: none;
-  background: transparent;
-  padding: 4px;
-}
-
-.skillsInput input:focus {
-  outline: none;
-  box-shadow: none;
-  background: transparent;
+  border: none !important;
+  font-size: 18px;
+  padding: 0;
 }
 
 .skillTag {
-  background: #1a1a1a;
+  background: #000;
   color: #fff;
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 13px;
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: 600;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
 }
 
 .skillTag button {
   background: transparent;
   border: none;
-  color: #999;
+  color: rgba(255,255,255,0.4);
   cursor: pointer;
-  padding: 0;
-  font-size: 16px;
-  line-height: 1;
-  display: flex;
-  align-items: center;
-  transition: color 0.2s;
+  font-size: 18px;
 }
 
 .skillTag button:hover {
@@ -210,125 +194,91 @@
 }
 
 .submitBtn {
-  background: #1a1a1a;
+  background: #000;
   color: #fff;
-  border: none;
-  padding: 16px;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 600;
+  border: 1px solid #000;
+  padding: 32px;
+  border-radius: 0;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 5px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  margin-top: 10px;
+  transition: all 0.4s ease;
+  margin-top: 40px;
 }
 
 .submitBtn:hover:not(:disabled) {
-  background: #333;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  background: #fff;
+  color: #000;
 }
 
 .submitBtn:disabled {
-  opacity: 0.7;
-  cursor: not-allowed;
+  opacity: 0.3;
 }
 
 .error {
-  color: #d32f2f;
-  background: #ffebee;
-  padding: 12px;
-  border-radius: 8px;
-  font-size: 14px;
+  color: #d4364f;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 1px;
 }
 
 .successCard {
-  background: #fff;
-  padding: 60px 40px;
-  border-radius: 16px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+  max-width: 600px;
+  margin: 100px auto;
   text-align: center;
 }
 
 .successCard h1 {
   font-family: 'Libre Baskerville', serif;
-  color: #1a1a1a;
-  margin: 0 0 16px 0;
+  font-size: 48px;
+  margin: 0 0 24px 0;
 }
 
 .successCard p {
   color: #666;
-  font-size: 16px;
-  line-height: 1.6;
-  margin: 0 0 32px 0;
+  font-size: 18px;
+  line-height: 1.8;
+  margin: 0 0 48px 0;
 }
 
 .btn {
-  background: #1a1a1a;
+  background: #000;
   color: #fff;
-  border: none;
-  padding: 14px 28px;
-  border-radius: 8px;
-  font-size: 15px;
-  font-weight: 600;
+  border: 1px solid #000;
+  padding: 20px 40px;
+  border-radius: 0;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 3px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .btn:hover {
-  background: #333;
+  background: #fff;
+  color: #000;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .container {
-    margin: 100px auto 60px;
+    padding-top: 100px;
+  }
+
+  .header h1 {
+    font-size: 44px;
   }
 
   .whyJoin {
     grid-template-columns: 1fr;
-    gap: 16px;
-    margin-bottom: 40px;
-  }
-
-  .whyCard {
-    padding: 24px;
+    gap: 40px;
+    padding: 0;
   }
 
   .form {
-    padding: 32px;
-    gap: 24px;
-  }
-
-  .header h1 {
-    font-size: 32px;
-  }
-
-  .header p {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 480px) {
-  .container {
-    margin: 90px auto 40px;
-    padding: 0 16px;
-  }
-
-  .header h1 {
-    font-size: 28px;
-  }
-
-  .form {
-    padding: 24px 16px;
-    border-radius: 16px;
-  }
-
-  .exclusiveBadge {
-    padding: 4px 12px;
-    font-size: 10px;
-    letter-spacing: 1.5px;
-  }
-
-  .successCard {
-    padding: 40px 20px;
+    padding: 0;
   }
 }

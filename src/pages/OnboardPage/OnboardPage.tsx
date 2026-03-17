@@ -107,9 +107,10 @@ export const OnboardPage = () => {
     return (
       <div className={styles.container}>
         <div className={styles.successCard}>
-          <h1>🎉 Application Received</h1>
-          <p>Thanks for applying to join the Flip Elite Circle! Our team will review your profile and get back to you soon.</p>
-          <button onClick={() => window.location.href = '/creators'} className={styles.btn}>Back to Elite Circle</button>
+          <span className={styles.whyIcon}>✧ APPLICATION SUCCESSFUL</span>
+          <h1>Membership Pending</h1>
+          <p>The Elite Circle is hand-curated. Our curators are reviewing your story and will reach out shortly for the next step.</p>
+          <button onClick={() => window.location.href = '/creators'} className={styles.btn}>Return to The Circle</button>
         </div>
       </div>
     );
@@ -123,7 +124,7 @@ export const OnboardPage = () => {
       />
       <div className={styles.header}>
         <div className={styles.badgeLine}>
-          <span className={styles.exclusiveBadge}>BY INVITATION ONLY</span>
+          <span className={styles.exclusiveBadge}>✧ BY INVITATION ONLY ✧</span>
         </div>
         <h1>The Elite Circle</h1>
         <p className={styles.exclusiveSubtext}>
@@ -134,17 +135,17 @@ export const OnboardPage = () => {
 
       <div className={styles.whyJoin}>
         <div className={styles.whyCard}>
-          <span className={styles.whyIcon}>Elite Status</span>
+          <span className={styles.whyIcon}>✧ STATUS</span>
           <h3>Elite Status</h3>
           <p>Gain the ultimate badge of craft and credibility in the city.</p>
         </div>
         <div className={styles.whyCard}>
-          <span className={styles.whyIcon}>Leagues</span>
+          <span className={styles.whyIcon}>✦ LEAGUE</span>
           <h3>Direct Peer Swap</h3>
-          <p>Trade within your league. Our upcoming level tiering ensures you always swap with peers at your specific mastery.</p>
+          <p>Trade within your league. Our upcoming tiering ensures you always swap with masters of your level.</p>
         </div>
         <div className={styles.whyCard}>
-          <span className={styles.whyIcon}>Legacy</span>
+          <span className={styles.whyIcon}>✧ LEGACY</span>
           <h3>Lifetime Free</h3>
           <p>Always free for our founding elite badge holders. No strings.</p>
         </div>
