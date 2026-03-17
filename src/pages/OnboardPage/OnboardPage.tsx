@@ -115,8 +115,9 @@ export const OnboardPage = () => {
   return (
     <main className={styles.container}>
       <SEO 
-        title="Join the Movement"
-        description="Apply to be a verified creator on Flip. Share your skills with Bengaluru's most talented community and start trading your craft."
+        title="Founder's Circle | BY INVITATION ONLY"
+        description="A curated ecosystem for Bengaluru's most influential creative voices. Trade your craft directly with peers who share your impact."
+        image="https://flipyu.in/images/social/og-onboard.png"
       />
       <div className={styles.header}>
         <div className={styles.badgeLine}>

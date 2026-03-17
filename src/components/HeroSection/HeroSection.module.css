@@ -445,3 +445,8 @@
     left: 0;
   }
 }
+@media (min-width: 1440px) {
+  .hero {
+    padding: 140px 24px 160px;
+  }
+}
