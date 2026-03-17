@@ -122,22 +122,25 @@
 
 .formGroup input,
 .formGroup textarea {
-  padding: 12px 0 20px 0;
+  padding: 12px 0 24px 0; /* Increased bottom padding */
   border: none;
-  border-bottom: 2px solid #d0d0d0; /* Thicker and darker line */
+  border-bottom: 2px solid #d0d0d0;
   border-radius: 0;
   font-size: 24px;
   font-family: 'Libre Baskerville', serif;
+  line-height: 1.5; /* Increased for better legibility and descender room */
   transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
   background: transparent;
   color: #000;
+  resize: none;
 }
 
 .formGroup input::placeholder,
 .formGroup textarea::placeholder {
-  color: #aaa; /* Darkened placeholder */
+  color: #bbb; /* Slightly lighter but clear */
   font-style: italic;
   font-weight: 400;
+  opacity: 1; /* Reset for some browsers */
 }
 
 .formGroup input:focus,
