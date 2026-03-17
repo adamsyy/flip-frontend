@@ -20,7 +20,7 @@ export const Navbar: React.FC = () => {
   const goToHomeSection = (id: string) => {
     if (window.location.pathname !== '/') {
       navigate('/');
-      setTimeout(() => scrollToSection(id), 80);
+      setTimeout(() => scrollToSection(id), 120);
       return;
     }
 

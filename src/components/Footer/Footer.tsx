@@ -104,7 +104,7 @@ export const Footer = () => {
           <div className={styles.links}>
             <Link to="/privacy" className={styles.footerLink}>Privacy</Link>
             <Link to="/terms" className={styles.footerLink}>Terms</Link>
-            <a href="mailto:hello@flipyu.in" className={styles.footerLink}>Contact</a>
+            <a href="mailto:connect@flipyu.in" className={styles.footerLink}>Contact</a>
           </div>
         </div>
       </div>
