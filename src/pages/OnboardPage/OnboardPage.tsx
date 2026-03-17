@@ -140,9 +140,9 @@ export const OnboardPage = () => {
           <p>Gain the ultimate badge of craft and credibility in the city.</p>
         </div>
         <div className={styles.whyCard}>
-          <span className={styles.whyIcon}>Peer-to-Peer</span>
-          <h3>Direct Access</h3>
-          <p>Skip the noise. Trade skills with masters at your level.</p>
+          <span className={styles.whyIcon}>Leagues</span>
+          <h3>Direct Peer Swap</h3>
+          <p>Trade within your league. Our upcoming level tiering ensures you always swap with peers at your specific mastery.</p>
         </div>
         <div className={styles.whyCard}>
           <span className={styles.whyIcon}>Legacy</span>
