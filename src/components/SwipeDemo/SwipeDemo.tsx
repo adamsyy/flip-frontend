@@ -33,6 +33,11 @@ export const SwipeDemo: React.FC = () => {
       .then(data => {
         if (Array.isArray(data)) {
           setCards(data);
+          // Pre-fetch images to cache them in browser memory
+          data.forEach(card => {
+            const img = new Image();
+            img.src = card.avatar_url;
+          });
         }
       })
       .catch((err) => {
