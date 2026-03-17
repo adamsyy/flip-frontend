@@ -15,8 +15,8 @@ function HomePage() {
   return (
     <main>
       <SEO
-        title="Find your people. Swap your skills."
-        description="Swap skills with the Elite Circle in Bengaluru. The professional networking app for the creative community."
+        title="The Elite Circle"
+        description="The exclusive skill-swapping community in Bengaluru. Swap your craft, build your legacy."
       />
       <div id="swipe">
         <SwipeDemo />
