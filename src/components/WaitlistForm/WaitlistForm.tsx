@@ -6,7 +6,8 @@ const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:1323';
 const PREDEFINED_SKILLS = [
   'Photography', 'Fitness', 'Motorcycle', 'Dancing', 'Mixology', 'Skateboarding',
   'Fashion Styling', 'Gym Training', 'Filmmaking', 'Coffee Culture', 'Makeup',
-  'Music Production', 'Surfing', 'Aerial Yoga', 'DJing', 'Street Art', 'Pilates', 'Vinyl Collecting'
+  'Music Production', 'Surfing', 'Aerial Yoga', 'DJing', 'Street Art', 'Pilates', 'Vinyl Collecting',
+  'Product Design', 'Generative AI', 'Kintsugi', 'Wine Tasting', 'Pottery'
 ];
 
 export const WaitlistForm: React.FC = () => {
