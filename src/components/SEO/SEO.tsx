@@ -40,16 +40,6 @@ export const SEO: React.FC<SEOProps> = ({
       <meta name="description" content={fullDescription} />
       <link rel="canonical" href={url} />
 
-      {/* Open Graph */}
-      <meta property="og:title" content={fullTitle} />
-      <meta property="og:description" content={fullDescription} />
-      <meta property="og:url" content={url} />
-      <meta property="og:type" content="website" />
-
-      {/* Twitter Card */}
-      <meta name="twitter:title" content={fullTitle} />
-      <meta name="twitter:description" content={fullDescription} />
-
       {/* Structured Data */}
       <script type="application/ld+json">
         {JSON.stringify(structuredData)}
