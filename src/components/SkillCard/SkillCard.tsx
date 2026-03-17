@@ -54,7 +54,12 @@ export const SkillCard: React.FC<SkillCardProps> = ({
     <div className={styles.cardWrapper} style={cardStyle}>
       <div className={styles.card}>
         <div className={styles.imageContainer}>
-          <img src={avatar} alt={name} className={styles.profileImage} />
+          <img 
+            src={avatar} 
+            alt={name} 
+            className={styles.profileImage} 
+            draggable="false"
+          />
           <span className={styles.statusBadge}>Verified</span>
           <div className={styles.overlay}></div>
         </div>
