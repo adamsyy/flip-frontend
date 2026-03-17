@@ -14,8 +14,8 @@ import styles from './App.module.css';
 function HomePage() {
   return (
     <main>
-      <SEO 
-        title="Find your people. Trade your craft."
+      <SEO
+        title="Find your people. Swap your skills."
         description="Connect with top creators in Bengaluru. Swap skills like design, coding, photography, and more. The professional networking app for high-intent creatives. Join the skill exchange revolution."
       />
       <div id="swipe">

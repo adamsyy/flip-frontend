@@ -54,7 +54,7 @@ export const SwipeDemo: React.FC = () => {
           // Filter out cards that are already in STARTER_CARDS to avoid duplicates
           const starterIds = STARTER_CARDS.map(c => c.id);
           const newCards = data.filter(c => !starterIds.includes(c.id));
-          
+
           if (newCards.length > 0) {
             setCards([...STARTER_CARDS, ...newCards]);
           }
@@ -153,7 +153,7 @@ export const SwipeDemo: React.FC = () => {
         <div className={styles.header}>
           <h2>
             Find your people.<br />
-            Trade your craft.
+            Swap your skills.
           </h2>
         </div>
         {/* 
@@ -175,18 +175,18 @@ export const SwipeDemo: React.FC = () => {
         <div className={styles.content}>
 
           <div className={styles.rightColumn}>
-              <div
-                className={styles.cardsContainer}
-                ref={containerRef}
-                onMouseDown={handleMouseDown}
-                onMouseMove={handleMouseMove}
-                onMouseUp={handleMouseUp}
-                onMouseLeave={handleMouseUp}
-                onTouchStart={handleTouchStart}
-                onTouchMove={handleTouchMove}
-                onTouchEnd={handleTouchEnd}
-                onTouchCancel={handleTouchEnd}
-              >
+            <div
+              className={styles.cardsContainer}
+              ref={containerRef}
+              onMouseDown={handleMouseDown}
+              onMouseMove={handleMouseMove}
+              onMouseUp={handleMouseUp}
+              onMouseLeave={handleMouseUp}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+              onTouchCancel={handleTouchEnd}
+            >
               {loading ? (
                 <div className={styles.spinnerWrapper}><div className={styles.spinner}></div></div>
               ) : cards.length > 0 ? cards.map((card, index) => (
