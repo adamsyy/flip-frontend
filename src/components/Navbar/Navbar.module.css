@@ -33,11 +33,8 @@
 
 .logoText {
   color: #000;
-  font-family: 'Libre Baskerville', serif;
-  font-size: 24px;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-  text-transform: lowercase;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  letter-spacing: -1px;
 }
 
 .navLinks {
