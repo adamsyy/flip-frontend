@@ -14,9 +14,30 @@ interface Creator {
   age?: number;
 }
 
+const STARTER_CARDS: Creator[] = [
+  {
+    id: 1,
+    name: "Preety Mukundan",
+    age: 27,
+    bio: "Guitarist who moonlights in music production. Teach me pottery?",
+    avatar_url: "/images/swipe/preety.jpg",
+    skills: ["Guitar", "Music Production", "Piano"],
+    primary_skill: "Guitar"
+  },
+  {
+    id: 2,
+    name: "Riya Shibu",
+    age: 26,
+    bio: "Seriously down for anyone who'll teach me baking instead of my stock-market rants.",
+    avatar_url: "/images/swipe/riya.jpg",
+    skills: ["Skating", "Street Art", "DJing"],
+    primary_skill: "Skating"
+  }
+];
+
 export const SwipeDemo: React.FC = () => {
-  const [cards, setCards] = useState<Creator[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [cards, setCards] = useState<Creator[]>(STARTER_CARDS);
+  const [loading, setLoading] = useState(false);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [offset, setOffset] = useState(0);
@@ -29,14 +50,18 @@ export const SwipeDemo: React.FC = () => {
     fetch(`${API_URL}/creators`)
       .then(res => res.json())
       .then(data => {
-        if (Array.isArray(data) && data.length > 0) {
-          setCards(data);
+        if (Array.isArray(data)) {
+          // Filter out cards that are already in STARTER_CARDS to avoid duplicates
+          const starterIds = STARTER_CARDS.map(c => c.id);
+          const newCards = data.filter(c => !starterIds.includes(c.id));
+          
+          if (newCards.length > 0) {
+            setCards([...STARTER_CARDS, ...newCards]);
+          }
         }
-        setLoading(false);
       })
       .catch((err) => {
-        console.error("Failed to load swipe demo cards:", err);
-        setLoading(false);
+        console.error("Failed to load additional swipe demo cards:", err);
       });
   }, []);
 
