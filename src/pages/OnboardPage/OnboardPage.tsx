@@ -68,6 +68,12 @@ export const OnboardPage = () => {
     setLoading(true);
     setError('');
 
+    if (!image) {
+      setError('Profile photo is required');
+      setLoading(false);
+      return;
+    }
+
     const payload = new FormData();
     payload.append('name', formData.name);
     payload.append('age', formData.age);
@@ -76,10 +82,7 @@ export const OnboardPage = () => {
     payload.append('insta_link', formData.insta_link);
     payload.append('skills', JSON.stringify(skills));
     payload.append('highlights', JSON.stringify(highlights));
-
-    if (image) {
-      payload.append('image', image);
-    }
+    payload.append('image', image);
 
     try {
       const res = await fetch(`${API_URL}/apply`, {
@@ -218,8 +221,8 @@ export const OnboardPage = () => {
         </div>
 
         <div className={styles.formGroup}>
-          <label>Profile Photo <i>(JPEG, PNG, WebP only)</i></label>
-          <input type="file" accept="image/jpeg, image/png, image/webp" onChange={handleFileChange} />
+          <label>Profile Photo * <i>(JPEG, PNG, WebP only)</i></label>
+          <input required type="file" accept="image/jpeg, image/png, image/webp" onChange={handleFileChange} />
         </div>
 
         {error && <div className={styles.error}>{error}</div>}
