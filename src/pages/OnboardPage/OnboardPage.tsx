@@ -145,9 +145,9 @@ export const OnboardPage = () => {
           <p>Skip the noise. Trade skills with masters at your level.</p>
         </div>
         <div className={styles.whyCard}>
-          <span className={styles.whyIcon}>Culture</span>
-          <h3>Impact</h3>
-          <p>Influence the next wave of Bengaluru&apos;s creative movement.</p>
+          <span className={styles.whyIcon}>Legacy</span>
+          <h3>Lifetime Free</h3>
+          <p>Always free for our founding elite badge holders. No strings.</p>
         </div>
       </div>
 
