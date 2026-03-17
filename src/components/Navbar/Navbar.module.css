@@ -12,9 +12,9 @@
 }
 
 .navbarContainer {
-  max-width: 1400px; /* Reduced from 1600 for better proportion */
+  max-width: 1200px; /* Reduced from 1400 to align with page content headlines */
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 40px; /* Increased to match page container padding */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -34,11 +34,11 @@
 }
 
 .logoImg {
-  height: 24px; /* Slightly more refined height */
+  height: 48px; /* Increased from 24px for visual weight */
   width: auto;
   display: block;
   object-fit: contain;
-  mix-blend-mode: multiply; /* Blends white backgrounds with the off-white page */
+  mix-blend-mode: multiply;
 }
 
 .logoText {
@@ -127,7 +127,7 @@
   }
 
   .logoImg {
-    height: 20px;
+    height: 36px;
   }
 
   .navLinks {
