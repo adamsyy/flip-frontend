@@ -31,7 +31,7 @@ export const Navbar: React.FC = () => {
     <nav className={styles.navbar}>
       <div className={styles.navbarContainer}>
         <button className={styles.logo} onClick={() => navigate('/')}>
-          <span className={styles.logoText}>flip</span>
+          <img src="/images/logo.png" alt="flip" className={styles.logoImg} />
         </button>
         
         <div className={styles.navLinks}>
