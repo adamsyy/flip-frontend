@@ -99,7 +99,7 @@ export const Footer = () => {
         {/* Bottom Section */}
         <div className={styles.bottom}>
           <p className={styles.copyright}>
-            &copy; 2026 flip. Skills are the new social currency.
+            &copy; 2026 Flip. Skills are the new social currency.
           </p>
           <div className={styles.links}>
             <Link to="/privacy" className={styles.footerLink}>Privacy</Link>

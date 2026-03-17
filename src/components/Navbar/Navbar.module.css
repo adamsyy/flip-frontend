@@ -22,33 +22,28 @@
 }
 
 .logo {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
   background: none;
   border: none;
   padding: 0;
   cursor: pointer;
   display: flex;
   align-items: center;
-  text-decoration: none;
-}
-
-.logoText {
-  display: none;
 }
 
 .logoImg {
-  height: 26px; /* Matched to previous logo size */
+  height: 32px;
   width: auto;
   display: block;
-  /* Blend the logo's off-white background with the navbar glassmorphism */
-  mix-blend-mode: multiply;
-  /* Visual alignment */
-  margin-top: 1px;
+  object-fit: contain;
 }
 
-@media (max-width: 480px) {
-  .logoImg {
-    height: 22px;
-  }
+.logoText {
+  color: #000;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  letter-spacing: -1px;
 }
 
 .navLinks {
@@ -130,8 +125,8 @@
     right: 0 !important;
   }
 
-  .logo {
-    font-size: 16px;
+  .logoImg {
+    height: 28px;
   }
 
   .navLinks {
