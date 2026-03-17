@@ -65,8 +65,9 @@ export const CreatorsPage = () => {
   return (
     <main className={styles.creatorsPage}>
       <SEO 
-        title="The Collective | Flip"
-        description="Discover talented individuals in Bengaluru's creative community. Connect with verified designers, developers, photographers, and more for skill-swapping."
+        title="The Collective | Bengaluru's Creative Elite"
+        description="Discover talented individuals in Bengaluru's creative community. Connect with verified designers, developers, photographers, and artists for exclusive skill-swapping."
+        image="https://flipyu.in/images/social/og-creators.png"
       />
       
       <div className={styles.header}>

@@ -26,8 +26,8 @@ export default function WhyFlip() {
   return (
     <div className={styles.page} ref={containerRef}>
       <SEO 
-        title="The Philosophy | Flip"
-        description="Decoding the future of creative exchange. Why skills matter more than clout."
+        title="The Philosophy | Stop Paying. Start Swapping."
+        description="Decoding the future of creative exchange in Bengaluru. Why trading skills beats paying for expensive courses. Join the movement."
       />
 
       <div className={styles.container}>

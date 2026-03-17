@@ -10,11 +10,11 @@ interface SEOProps {
 export const SEO: React.FC<SEOProps> = ({ 
   title, 
   description, 
-  image = 'https://flipyu.in/og-image.jpg', 
+  image = 'https://flipyu.in/images/social/og-main.png', 
   url = 'https://flipyu.in/' 
 }) => {
-  const fullTitle = title ? `${title} | Flip` : 'Flip - Trade your craft in Bengaluru';
-  const fullDescription = description || "Swap skills with creators in Bengaluru. No videos. Just real people, real skills, real growth. Join the creative community today.";
+  const fullTitle = title ? `${title} | Flip` : 'Flip - Trade your craft. Find your people.';
+  const fullDescription = description || "The skill-swapping platform for Bengaluru's top creators. Connect with designers, developers, and artists to trade your craft and grow together.";
 
   const structuredData = {
     "@context": "https://schema.org",
