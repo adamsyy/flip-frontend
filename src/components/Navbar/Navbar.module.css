@@ -36,16 +36,18 @@
 }
 
 .logoImg {
-  height: 32px;
+  height: 26px; /* Matched to previous logo size */
   width: auto;
   display: block;
-  /* Visual alignment for this specific serif font */
-  margin-top: 2px;
+  /* Blend the logo's off-white background with the navbar glassmorphism */
+  mix-blend-mode: multiply;
+  /* Visual alignment */
+  margin-top: 1px;
 }
 
 @media (max-width: 480px) {
   .logoImg {
-    height: 28px;
+    height: 22px;
   }
 }
 
