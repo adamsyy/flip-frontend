@@ -81,7 +81,7 @@
 
 .cardsContainer {
   position: relative;
-  height: 540px;
+  height: 580px;
   width: 100%;
   max-width: 320px;
   display: flex;
@@ -206,7 +206,7 @@
   .cardsContainer {
     width: 320px;
     max-width: 100%;
-    height: 520px; /* Ensures background matches child wrapper height */
+    height: 540px; /* Ensures background matches child wrapper height */
   }
   .rightColumn {
     gap: 20px; /* Pull buttons closer to card on iPad */
@@ -250,7 +250,7 @@
   }
 
   .cardsContainer {
-    height: 480px;
+    height: 520px;
     max-width: 320px;
     margin: 0 auto;
   }
@@ -294,7 +294,7 @@
     position: relative;
     width: 90vw;
     max-width: 320px;
-    height: 480px; /* Set fixed sensible height to prevent image cropping */
+    height: 520px; /* Set fixed sensible height to prevent image cropping */
     margin: 32px auto 0; /* Breathing room from button */
   }
   

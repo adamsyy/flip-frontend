@@ -4,12 +4,14 @@ interface SEOProps {
   title?: string;
   description?: string;
   url?: string;
+  image?: string;
 }
 
 export const SEO: React.FC<SEOProps> = ({
   title,
   description,
-  url = 'https://flipyu.in/'
+  url = 'https://flipyu.in/',
+  image = 'https://flipyu.in/images/social-hidden/og-main.png'
 }) => {
   const fullTitle = title ? `${title} | Flip` : 'Flip - Swap your skills. Find your people.';
   const fullDescription = description || "Trade a little Kannada for a killer Biryani recipe. No lectures, no 'experts' just humans teaching humans what they know best.";
@@ -45,11 +47,13 @@ export const SEO: React.FC<SEOProps> = ({
       <meta property="og:description" content={fullDescription} />
       <meta property="og:url" content={url} />
       <meta property="og:type" content="website" />
+      <meta property="og:image" content={image} />
 
       {/* Twitter Card */}
-      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={fullDescription} />
+      <meta name="twitter:image" content={image} />
 
       {/* Structured Data */}
       <script type="application/ld+json">
