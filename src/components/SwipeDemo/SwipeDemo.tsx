@@ -17,7 +17,7 @@ interface Creator {
 
 export const SwipeDemo: React.FC = () => {
   const [cards, setCards] = useState<Creator[]>([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [offset, setOffset] = useState(0);
@@ -27,6 +27,7 @@ export const SwipeDemo: React.FC = () => {
   const autoSwipeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
+    setLoading(true);
     fetch(`${API_URL}/creators`)
       .then(res => res.json())
       .then(data => {
@@ -36,6 +37,9 @@ export const SwipeDemo: React.FC = () => {
       })
       .catch((err) => {
         console.error("Failed to load additional swipe demo cards:", err);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   }, []);
 
@@ -162,7 +166,14 @@ export const SwipeDemo: React.FC = () => {
               onTouchCancel={handleTouchEnd}
             >
               {loading ? (
-                <div className={styles.spinnerWrapper}><div className={styles.spinner}></div></div>
+                <div className={styles.skeletonCard}>
+                  <div className={styles.skeletonImage} />
+                  <div className={styles.skeletonContent}>
+                    <div className={styles.skeletonTitle} />
+                    <div className={styles.skeletonBadge} />
+                    <div className={styles.skeletonText} />
+                  </div>
+                </div>
               ) : cards.length > 0 ? cards.map((card, index) => (
                 <SkillCard
                   key={card.id}
