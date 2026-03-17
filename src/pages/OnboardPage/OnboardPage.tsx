@@ -134,7 +134,7 @@ export const OnboardPage = () => {
 
       <div className={styles.whyJoin}>
         <div className={styles.whyCard}>
-          <span className={styles.whyIcon}>Verified</span>
+          <span className={styles.whyIcon}>Elite Status</span>
           <h3>Elite Status</h3>
           <p>Gain the ultimate badge of craft and credibility in the city.</p>
         </div>

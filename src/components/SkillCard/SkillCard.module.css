@@ -61,16 +61,28 @@
   position: absolute;
   top: 16px;
   right: 16px;
-  background: #1e1e1e;
-  color: #fff;
+  background: rgba(10, 10, 10, 0.85);
+  color: #D4AF37; /* Luxury Gold */
   font-size: 10px;
-  font-weight: 700;
-  padding: 6px 12px;
+  font-weight: 800;
+  padding: 6px 14px;
   border-radius: 999px;
-  border: 1px solid #333;
-  letter-spacing: 1.5px;
+  border: 1px solid rgba(212, 175, 55, 0.4); /* Subtle gold border */
+  letter-spacing: 2px;
   text-transform: uppercase;
   z-index: 2;
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.statusBadge::before {
+  content: '✦';
+  font-size: 12px;
+  margin-right: 2px;
+  color: #D4AF37;
 }
 
 .content {

@@ -85,7 +85,7 @@ export const CreatorsPage = () => {
                 <div className={styles.card}>
                   <div className={styles.imageContainer}>
                     <img src={creator.avatar_url} alt={creator.name} className={styles.profileImage} />
-                    <span className={styles.statusBadge}>Verified</span>
+                    <span className={styles.statusBadge}>Elite</span>
                     <div className={styles.overlay}></div>
                   </div>
 

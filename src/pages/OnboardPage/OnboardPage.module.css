@@ -85,17 +85,24 @@
 .whyCard:hover {
   transform: translateY(-8px);
   box-shadow: 0 15px 45px rgba(0,0,0,0.1);
-  border-color: #d4364f;
+  border-color: #D4AF37;
 }
 
 .whyIcon {
   font-size: 10px;
   text-transform: uppercase;
   font-weight: 800;
-  letter-spacing: 1.5px;
-  color: #d4364f;
-  margin-bottom: 16px;
-  display: block;
+  letter-spacing: 2px;
+  color: #D4AF37; /* Luxury Gold */
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.whyIcon::before {
+  content: '✦';
+  font-size: 14px;
 }
 
 .whyCard h3 {

@@ -60,7 +60,7 @@ export const SkillCard: React.FC<SkillCardProps> = ({
             className={styles.profileImage} 
             draggable="false"
           />
-          <span className={styles.statusBadge}>Verified</span>
+          <span className={styles.statusBadge}>Elite</span>
           <div className={styles.overlay}></div>
         </div>
         
