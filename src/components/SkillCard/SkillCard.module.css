@@ -186,11 +186,8 @@
     gap: 8px;
   }
   .bio {
-    display: -webkit-box;
-    -webkit-line-clamp: 3; /* Increased for better legibility */
-    line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    display: block;
+    overflow: visible;
   }
 }
 
@@ -216,10 +213,7 @@
     flex: 1; 
   }
   .bio {
-    display: -webkit-box;
-    -webkit-line-clamp: 3; /* Let users read the story! */
-    line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    display: block;
+    overflow: visible;
   }
 }

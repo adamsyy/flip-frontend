@@ -294,7 +294,7 @@
     position: relative;
     width: 90vw;
     max-width: 320px;
-    height: 520px; /* Set fixed sensible height to prevent image cropping */
+    height: 560px; /* Increased to accommodate full bio */
     margin: 32px auto 0; /* Breathing room from button */
   }
   
