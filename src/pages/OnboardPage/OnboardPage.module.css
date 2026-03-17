@@ -1,8 +1,8 @@
 .container {
   max-width: 800px;
-  margin: 120px auto 100px;
+  margin: 110px auto 100px;
   padding: 0 20px;
-  min-height: calc(100vh - 220px);
+  min-height: calc(100vh - 210px);
 }
 
 .header {
@@ -271,12 +271,57 @@
   background: #333;
 }
 
-@media (max-width: 600px) {
-  .form {
+@media (max-width: 768px) {
+  .container {
+    margin: 100px auto 60px;
+  }
+
+  .whyJoin {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .whyCard {
     padding: 24px;
   }
-  
+
+  .form {
+    padding: 32px;
+    gap: 24px;
+  }
+
   .header h1 {
     font-size: 32px;
+  }
+
+  .header p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    margin: 90px auto 40px;
+    padding: 0 16px;
+  }
+
+  .header h1 {
+    font-size: 28px;
+  }
+
+  .form {
+    padding: 24px 16px;
+    border-radius: 16px;
+  }
+
+  .exclusiveBadge {
+    padding: 4px 12px;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+  }
+
+  .successCard {
+    padding: 40px 20px;
   }
 }

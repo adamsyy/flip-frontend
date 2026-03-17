@@ -120,7 +120,7 @@ export const OnboardPage = () => {
       <SEO 
         title="Founder's Circle | BY INVITATION ONLY"
         description="A curated ecosystem for Bengaluru's most influential creative voices. Trade your craft directly with peers who share your impact."
-        image="https://flipyu.in/images/social/og-onboard.png"
+        showImage={false}
       />
       <div className={styles.header}>
         <div className={styles.badgeLine}>

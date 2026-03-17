@@ -5,13 +5,15 @@ interface SEOProps {
   description?: string;
   image?: string;
   url?: string;
+  showImage?: boolean;
 }
 
 export const SEO: React.FC<SEOProps> = ({
   title,
   description,
   image = 'https://flipyu.in/images/social/og-main.png',
-  url = 'https://flipyu.in/'
+  url = 'https://flipyu.in/',
+  showImage = true
 }) => {
   const fullTitle = title ? `${title} | Flip` : 'Flip - Swap your skills. Find your people.';
   const fullDescription = description || "Trade a little Kannada for a killer Biryani recipe. No lectures, no 'experts' just humans teaching humans what they know best.";
@@ -45,15 +47,15 @@ export const SEO: React.FC<SEOProps> = ({
       {/* Open Graph */}
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={fullDescription} />
-      <meta property="og:image" content={image} />
+      <meta property="og:image" content={showImage ? image : ""} />
       <meta property="og:url" content={url} />
       <meta property="og:type" content="website" />
 
       {/* Twitter Card */}
-      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:card" content={showImage ? "summary_large_image" : "summary"} />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={fullDescription} />
-      <meta name="twitter:image" content={image} />
+      <meta name="twitter:image" content={showImage ? image : ""} />
 
       {/* Structured Data */}
       <script type="application/ld+json">
