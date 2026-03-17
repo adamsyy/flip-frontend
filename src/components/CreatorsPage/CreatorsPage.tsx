@@ -26,7 +26,7 @@ export const CreatorsPage = () => {
     fetch(`${API_URL}/creators`)
       .then(r => r.json())
       .then(data => { setCreators(data); setLoading(false); })
-      .catch(() => { setError('Failed to load creators.'); setLoading(false); });
+      .catch(() => { setError('Failed to load the Elite Circle.'); setLoading(false); });
   }, []);
 
   useEffect(() => {
@@ -52,7 +52,7 @@ export const CreatorsPage = () => {
   if (loading) return (
     <div className={styles.creatorsPage}>
       <div className={styles.header}>
-        <h1 className={styles.title}>Meet Our Creators</h1>
+        <h1 className={styles.title}>The Elite Circle</h1>
         <p className={styles.subtitle}>Connecting Bengaluru's creative elite...</p>
       </div>
       <div className={styles.creatorsGrid}>
@@ -65,12 +65,12 @@ export const CreatorsPage = () => {
   return (
     <main className={styles.creatorsPage}>
       <SEO 
-        title="The Collective"
+        title="The Elite Circle"
         description="Discover Bengaluru's creative community."
       />
       
       <div className={styles.header}>
-        <h1 className={styles.title}>Meet Our Creators</h1>
+        <h1 className={styles.title}>The Elite Circle</h1>
         <p className={styles.subtitle}>Discover the individuals building the future of skill exchange in Bengaluru.</p>
       </div>
 

@@ -108,8 +108,8 @@ export const OnboardPage = () => {
       <div className={styles.container}>
         <div className={styles.successCard}>
           <h1>🎉 Application Received</h1>
-          <p>Thanks for applying to join the Flip creator community! Our team will review your profile and get back to you soon.</p>
-          <button onClick={() => window.location.href = '/creators'} className={styles.btn}>Back to Creators</button>
+          <p>Thanks for applying to join the Flip Elite Circle! Our team will review your profile and get back to you soon.</p>
+          <button onClick={() => window.location.href = '/creators'} className={styles.btn}>Back to Elite Circle</button>
         </div>
       </div>
     );
@@ -118,14 +118,14 @@ export const OnboardPage = () => {
   return (
     <main className={styles.container}>
       <SEO 
-        title="Founder's Circle"
+        title="The Elite Circle"
         description="Exclusive access for Bengaluru's creative movement."
       />
       <div className={styles.header}>
         <div className={styles.badgeLine}>
           <span className={styles.exclusiveBadge}>BY INVITATION ONLY</span>
         </div>
-        <h1>Founder&apos;s Circle</h1>
+        <h1>The Elite Circle</h1>
         <p className={styles.exclusiveSubtext}>
           A curated ecosystem for Bengaluru&apos;s most influential creative voices. 
           Trade your craft directly with peers who share your impact.
@@ -157,7 +157,7 @@ export const OnboardPage = () => {
         }
       }}>
         <div className={styles.formGroup}>
-          <label>Creator Name *</label>
+          <label>Member Name *</label>
           <input required type="text" name="name" value={formData.name} onChange={handleInputChange} placeholder="e.g. Preety Mukundan" />
         </div>
 
@@ -227,7 +227,7 @@ export const OnboardPage = () => {
         {error && <div className={styles.error}>{error}</div>}
 
         <button type="submit" className={styles.submitBtn} disabled={loading}>
-          {loading ? 'Submitting...' : 'Apply as Creator'}
+          {loading ? 'Submitting...' : 'Join the Elite Circle'}
         </button>
       </form>
     </main>

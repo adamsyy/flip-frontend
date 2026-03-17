@@ -24,7 +24,7 @@ export const LegalPage = ({ type }: { type: 'privacy' | 'terms' }) => {
 
         <section>
           <h2>2. Data Collection</h2>
-          <p>We collect information you provide directly to us when you join the waitlist or apply as a creator, including your name, email, and skill profiles.</p>
+          <p>We collect information you provide directly to us when you join the waitlist or apply to join the Elite Circle, including your name, email, and skill profiles.</p>
         </section>
 
         <section>

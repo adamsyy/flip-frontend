@@ -189,7 +189,7 @@ export const SwipeDemo: React.FC = () => {
                   offset={index === currentIndex ? offset : 0}
                 />
               )) : (
-                <div style={{ color: '#999' }}>No creators found</div>
+                <div style={{ color: '#999' }}>Members joining soon</div>
               )}
             </div>
 

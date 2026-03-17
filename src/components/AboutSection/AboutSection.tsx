@@ -114,7 +114,7 @@ export default function AboutSection() {
         <div className={styles.bannerSection}>
           <div className={styles.bannerContent}>
             <h3>Made for Namma Bengaluru</h3>
-            <p>Where creators trade skills, not followers. Ready to swap?</p>
+            <p>Where the Elite Circle trades skills, not followers. Ready to swap?</p>
             <button 
               className={styles.bannerButton}
               onClick={() => {

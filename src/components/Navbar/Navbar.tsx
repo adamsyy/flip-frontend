@@ -36,7 +36,7 @@ export const Navbar: React.FC = () => {
         
         <div className={styles.navLinks}>
           <button onClick={() => navigate('/creators')} className={styles.link}>
-            Creators
+            Elite Circle
           </button>
           <button onClick={() => goToHomeSection('waitlist')} className={styles.link}>
             Join Waitlist

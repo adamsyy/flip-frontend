@@ -48,14 +48,14 @@ export const Footer = () => {
                 connect@flipyu.in
               </a>
               <p className={styles.text}>Namma Bengaluru</p>
-              <Link to="/creators" className={styles.mapLink}>FIND CREATORS →</Link>
+              <Link to="/creators" className={styles.mapLink}>THE ELITE CIRCLE →</Link>
             </div>
           </div>
 
           {/* Right Section - Newsletter & Social */}
           <div className={styles.section}>
             <h3 className={styles.sectionTitle}>JOIN THE FLIP MOVEMENT</h3>
-            <p className={styles.subtitle}>Get early access to skill swaps, creator stories, and community events in Bengaluru.</p>
+            <p className={styles.subtitle}>Get early access to skill swaps, Elite Circle stories, and community events in Bengaluru.</p>
 
             {success ? (
               <p className={styles.successMsg}>🎉 You're on the list!</p>

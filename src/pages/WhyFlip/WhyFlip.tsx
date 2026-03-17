@@ -60,7 +60,7 @@ export default function WhyFlip() {
           <div className={styles.heroImageWrapper}>
             <img 
               src="/images/why-flip/hero.png" 
-              alt="Creators sharing a camera in Bengaluru" 
+              alt="Elite Circle members sharing a camera in Bengaluru" 
               className={styles.heroImage} 
             />
           </div>
