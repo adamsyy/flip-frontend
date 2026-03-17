@@ -81,7 +81,7 @@
 
 .cardsContainer {
   position: relative;
-  height: 520px;
+  height: 560px;
   width: 100%;
   max-width: 320px;
   display: flex;
@@ -294,7 +294,7 @@
     position: relative;
     width: 90vw;
     max-width: 320px;
-    height: 560px; /* Increased to accommodate full bio */
+    height: 600px; /* Increased to accommodate full bio */
     margin: 32px auto 0; /* Breathing room from button */
   }
   
