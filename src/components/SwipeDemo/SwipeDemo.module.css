@@ -245,3 +245,38 @@
     font-size: 20px;
   }
 }
+
+@media (min-width: 1440px) {
+  .swipeDemo {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 24px 0; /* Optical centering offset */
+  }
+
+  .swipeContainer {
+    max-width: 1600px; /* Wider for 15.6" density */
+    gap: 80px 140px;
+  }
+
+  .swipeContainer > .header h2 {
+    font-size: 80px;
+  }
+
+  .description {
+    font-size: 20px;
+    max-width: 540px;
+  }
+
+  .cardsContainer {
+    max-width: 400px;
+    height: 640px;
+  }
+
+  .btnReject, .btnAccept {
+    width: 72px;
+    height: 72px;
+    font-size: 28px;
+  }
+}
