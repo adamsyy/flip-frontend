@@ -3,17 +3,13 @@ import { Helmet } from 'react-helmet-async';
 interface SEOProps {
   title?: string;
   description?: string;
-  image?: string;
   url?: string;
-  showImage?: boolean;
 }
 
 export const SEO: React.FC<SEOProps> = ({
   title,
   description,
-  image = 'https://flipyu.in/images/social/og-main.png',
-  url = 'https://flipyu.in/',
-  showImage = true
+  url = 'https://flipyu.in/'
 }) => {
   const fullTitle = title ? `${title} | Flip` : 'Flip - Swap your skills. Find your people.';
   const fullDescription = description || "Trade a little Kannada for a killer Biryani recipe. No lectures, no 'experts' just humans teaching humans what they know best.";
