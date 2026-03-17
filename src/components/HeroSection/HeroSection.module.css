@@ -19,8 +19,12 @@
 .hero {
   position: relative;
   background: #fff;
-  padding: 80px 24px 100px;
+  padding: 40px 24px;
   overflow: hidden;
+  min-height: calc(100vh - 80px); /* Adjust for header height if necessary */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Ambient blobs */
@@ -447,6 +451,7 @@
 }
 @media (min-width: 1440px) {
   .hero {
-    padding: 140px 24px 160px;
+    min-height: 100vh;
+    padding: 0 24px;
   }
 }
