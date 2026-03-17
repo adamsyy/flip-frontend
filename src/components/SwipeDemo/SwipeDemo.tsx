@@ -15,9 +15,30 @@ interface Creator {
 }
 
 
+const FEATURED_MEMBERS: Creator[] = [
+  {
+    id: -1,
+    name: "Preety",
+    age: 27,
+    primary_skill: "Guitar",
+    skills: ["Music Production", "Songwriting"],
+    avatar_url: "https://preview.redd.it/can-she-succeed-in-the-long-run-in-frame-preity-mukundan-v0-7m4vtw5ajddf1.jpg?width=495&format=pjpg&auto=webp&s=f592957cab8971c98d9cc3962c153c68d4c678f7",
+    bio: "I'm a guitarist who moonlights in music production. Ready to swap for some pottery or design tips."
+  },
+  {
+    id: -2,
+    name: "Naslen",
+    age: 24,
+    primary_skill: "Photography",
+    skills: ["Video Editing", "Travel"],
+    avatar_url: "https://clickinkerala.com/wp-content/uploads/2025/04/Naslen-K-Gafoor-3.jpg",
+    bio: "Capturing Bengaluru's streets is my therapy. Want to learn camera basics? Teach me some cycling routes."
+  }
+];
+
 export const SwipeDemo: React.FC = () => {
-  const [cards, setCards] = useState<Creator[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [cards, setCards] = useState<Creator[]>(FEATURED_MEMBERS);
+  const [loading, setLoading] = useState(false);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [offset, setOffset] = useState(0);
@@ -27,13 +48,14 @@ export const SwipeDemo: React.FC = () => {
   const autoSwipeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
-    setLoading(true);
+    // Sync with server in background
     fetch(`${API_URL}/creators`)
       .then(res => res.json())
       .then(data => {
-        if (Array.isArray(data)) {
+        if (Array.isArray(data) && data.length > 0) {
+          // Merge featured with live data, avoiding duplicates if any
           setCards(data);
-          // Pre-fetch images to cache them in browser memory
+          
           data.forEach(card => {
             const img = new Image();
             img.src = card.avatar_url;
@@ -42,9 +64,6 @@ export const SwipeDemo: React.FC = () => {
       })
       .catch((err) => {
         console.error("Failed to load additional swipe demo cards:", err);
-      })
-      .finally(() => {
-        setLoading(false);
       });
   }, []);
 
