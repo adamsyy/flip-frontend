@@ -16,7 +16,7 @@ function HomePage() {
     <main>
       <SEO
         title="Find your people. Swap your skills."
-        description="Connect with top creators in Bengaluru. Swap skills like design, coding, photography, and more. The professional networking app for high-intent creatives. Join the skill exchange revolution."
+        description="Trade a little Kannada for a killer Biryani recipe. No lectures, no 'experts' just humans teaching humans what they know best."
       />
       <div id="swipe">
         <SwipeDemo />

@@ -164,7 +164,7 @@ export const SwipeDemo: React.FC = () => {
         <div className={styles.leftContent}>
 
           <p className={styles.description}>
-            Swap skills with creators in Bengaluru who actually know their craft. Just real people, real skills, real growth.
+            Trade a little Kannada for a killer Biryani recipe. No lectures, no "experts" just humans teaching humans what they know best.
           </p>
           <button className={styles.secondaryButton} onClick={scrollToWaitlist}>
             Get Early Access

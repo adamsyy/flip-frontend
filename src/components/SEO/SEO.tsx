@@ -14,7 +14,7 @@ export const SEO: React.FC<SEOProps> = ({
   url = 'https://flipyu.in/'
 }) => {
   const fullTitle = title ? `${title} | Flip` : 'Flip - Swap your skills. Find your people.';
-  const fullDescription = description || "The skill-swapping platform for Bengaluru's top creators. Connect with designers, developers, and artists to trade your craft and grow together.";
+  const fullDescription = description || "Trade a little Kannada for a killer Biryani recipe. No lectures, no 'experts' just humans teaching humans what they know best.";
 
   const structuredData = {
     "@context": "https://schema.org",
