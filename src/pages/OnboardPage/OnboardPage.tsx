@@ -169,7 +169,7 @@ export const OnboardPage = () => {
 
         <div className={styles.formGroup}>
           <label>Tell us your story *</label>
-          <textarea required name="description" value={formData.description} onChange={handleInputChange} placeholder="I'm a guitarist who moonlights in music production. Teach me pottery?" rows={3} />
+          <textarea required name="description" value={formData.description} onChange={handleInputChange} placeholder="I'm a guitarist who moonlights in music. Teach me pottery?" rows={3} />
         </div>
 
         <div className={styles.formGroup}>
