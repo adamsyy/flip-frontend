@@ -47,15 +47,13 @@ export const SEO: React.FC<SEOProps> = ({
       {/* Open Graph */}
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={fullDescription} />
-      <meta property="og:image" content={showImage ? image : ""} />
       <meta property="og:url" content={url} />
       <meta property="og:type" content="website" />
 
       {/* Twitter Card */}
-      <meta name="twitter:card" content={showImage ? "summary_large_image" : "summary"} />
+      <meta name="twitter:card" content="summary" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={fullDescription} />
-      <meta name="twitter:image" content={showImage ? image : ""} />
 
       {/* Structured Data */}
       <script type="application/ld+json">
