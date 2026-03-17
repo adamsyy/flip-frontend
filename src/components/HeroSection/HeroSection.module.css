@@ -18,7 +18,7 @@
 /* ─── Section wrapper ───────────────────────────────────────────── */
 .hero {
   position: relative;
-  background: #fff;
+  background: #FFFCF9;
   padding: 40px 24px;
   overflow: hidden;
   min-height: calc(100vh - 80px); /* Adjust for header height if necessary */
