@@ -39,6 +39,21 @@ export const SEO: React.FC<SEOProps> = ({
       <title>{fullTitle}</title>
       <meta name="description" content={fullDescription} />
       <meta name="robots" content="nosnippet, max-image-preview:none" />
+      
+      {/* Open Graph / Facebook / Instagram */}
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content={url} />
+      <meta property="og:title" content={fullTitle} />
+      <meta property="og:description" content={fullDescription} />
+      <meta property="og:image" content="" />
+
+      {/* Twitter */}
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:url" content={url} />
+      <meta name="twitter:title" content={fullTitle} />
+      <meta name="twitter:description" content={fullDescription} />
+      <meta name="twitter:image" content="" />
+      
       <link rel="canonical" href={url} />
 
       {/* Structured Data */}
