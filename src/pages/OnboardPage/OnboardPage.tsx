@@ -118,8 +118,8 @@ export const OnboardPage = () => {
   return (
     <main className={styles.container}>
       <SEO 
-        title="Founder's Circle | BY INVITATION ONLY"
-        description="A curated ecosystem for Bengaluru's most influential creative voices. Trade your craft directly with peers who share your impact."
+        title="Founder's Circle"
+        description="Exclusive access for Bengaluru's creative movement."
       />
       <div className={styles.header}>
         <div className={styles.badgeLine}>

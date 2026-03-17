@@ -38,6 +38,7 @@ export const SEO: React.FC<SEOProps> = ({
       {/* Base Tags */}
       <title>{fullTitle}</title>
       <meta name="description" content={fullDescription} />
+      <meta name="robots" content="nosnippet, max-image-preview:none" />
       <link rel="canonical" href={url} />
 
       {/* Structured Data */}

@@ -65,8 +65,8 @@ export const CreatorsPage = () => {
   return (
     <main className={styles.creatorsPage}>
       <SEO 
-        title="The Collective | Bengaluru's Creative Elite"
-        description="Discover talented individuals in Bengaluru's creative community. Connect with verified designers, developers, photographers, and artists for exclusive skill-swapping."
+        title="The Collective"
+        description="Discover Bengaluru's creative community."
       />
       
       <div className={styles.header}>
