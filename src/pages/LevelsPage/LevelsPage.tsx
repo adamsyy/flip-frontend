@@ -26,7 +26,10 @@ export const LevelsPage: React.FC = () => {
       
       <div className={styles.header}>
         <h1>Tiers of <br />The Circle</h1>
-        <p>Flip is a structured ecosystem. Your level defines your league, your visibility, and the depth of your connections.</p>
+        <p>
+          Flip is a structured ecosystem. Your level defines your league, your visibility, and the depth of your connections.
+          Levels are determined by craft mastery, community impact, and peer recognition. Your story begins at Level 01.
+        </p>
       </div>
 
       <div className={styles.tiersGrid}>
@@ -68,11 +71,6 @@ export const LevelsPage: React.FC = () => {
         </div>
       </div>
 
-      <div className={styles.ctaSection}>
-        <p style={{ marginBottom: '32px', color: '#888', fontSize: '14px', maxWidth: '400px' }}>
-          Levels are determined by craft mastery, community impact, and peer recognition. Your story begins at Level 01.
-        </p>
-      </div>
     </main>
   );
 };
