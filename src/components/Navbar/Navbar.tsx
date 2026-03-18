@@ -35,9 +35,6 @@ export const Navbar: React.FC = () => {
         </button>
         
         <div className={styles.navLinks}>
-          <button onClick={() => navigate('/creators')} className={styles.link}>
-            Elite Circle
-          </button>
           <button onClick={() => navigate('/levels')} className={styles.link}>
             Levels
           </button>
@@ -46,6 +43,9 @@ export const Navbar: React.FC = () => {
           </button>
           <button onClick={() => navigate('/whyFlip')} className={styles.link}>
             Why Flip
+          </button>
+          <button onClick={() => navigate('/creators')} className={styles.link}>
+            Elite Circle
           </button>
         </div>
       </div>
