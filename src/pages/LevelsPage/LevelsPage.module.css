@@ -1,0 +1,203 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 160px 24px 120px;
+  min-height: 100vh;
+  background: #FFFCF9;
+  color: #111;
+}
+
+.header {
+  text-align: left;
+  margin-bottom: 120px;
+  max-width: 800px;
+}
+
+.header h1 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 72px;
+  font-weight: 400;
+  margin-bottom: 24px;
+  letter-spacing: -4px;
+  line-height: 0.9;
+  color: #000;
+}
+
+.header p {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  color: #666;
+  font-weight: 300;
+  line-height: 1.6;
+  max-width: 520px;
+}
+
+.tiersGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-bottom: 120px;
+}
+
+.tierCard {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 0;
+  border-top: 1px solid #eee;
+  transition: all 0.4s ease;
+}
+
+.tierLevel {
+  font-size: 11px;
+  font-weight: 800;
+  color: #A38A00;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 24px;
+}
+
+.tierName {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 32px;
+  font-weight: 400;
+  margin-bottom: 16px;
+  color: #000;
+  letter-spacing: -1px;
+}
+
+.tierStatus {
+  font-size: 12px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tierStatus::before {
+  content: '✧';
+  color: #D4AF37;
+}
+
+.tierDescription {
+  font-size: 15px;
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 40px;
+  flex-grow: 1;
+}
+
+.unrevealed {
+  color: #ddd !important;
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+}
+
+.unrevealedCard {
+  opacity: 1;
+}
+
+.unrevealedCard .tierName {
+  position: relative;
+  display: inline-block;
+}
+
+.unrevealedCard {
+  opacity: 1;
+}
+
+.unrevealedCard .tierName {
+  position: relative;
+  display: inline-block;
+}
+
+.redactionBar {
+  position: absolute;
+  top: 50%;
+  left: -2px;
+  right: -2px;
+  height: 80%;
+  background: #000;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.unrevealedCard .tierDescription {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: transparent;
+  height: auto;
+}
+
+.redactedLine {
+  height: 12px;
+  background: #eee;
+  width: 100%;
+}
+
+.redactedLine:nth-child(2) { width: 85%; }
+.redactedLine:nth-child(3) { width: 90%; }
+.redactedLine:nth-child(4) { width: 40%; }
+
+.eliteBadge {
+  background: #000;
+  color: #D4AF37;
+  padding: 4px 10px;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  margin-top: -4px;
+}
+
+.ctaSection {
+  border-top: 1px solid #111;
+  padding-top: 60px;
+  text-align: left;
+}
+
+.ctaBtn {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 24px 48px;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ctaBtn:hover {
+  background: #D4AF37;
+  color: #000;
+}
+
+@media (max-width: 1024px) {
+  .tiersGrid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  
+  .tierCard {
+    padding: 60px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 48px;
+    letter-spacing: -2px;
+  }
+  
+  .container {
+    padding-top: 100px;
+  }
+}

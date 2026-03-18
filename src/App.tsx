@@ -7,6 +7,7 @@ import { Footer } from './components/Footer/Footer';
 import { CreatorsPage } from './components/CreatorsPage/CreatorsPage';
 import { OnboardPage } from './pages/OnboardPage/OnboardPage';
 import WhyFlip from './pages/WhyFlip/WhyFlip';
+import { LevelsPage } from './pages/LevelsPage/LevelsPage';
 import { LegalPage } from './pages/LegalPage/LegalPage';
 import { SEO } from './components/SEO/SEO';
 import styles from './App.module.css';
@@ -43,6 +44,7 @@ function App() {
         <Route path="/terms" element={<LegalPage type="terms" />} />
         <Route path="/creators" element={<CreatorsPage />} />
         <Route path="/onboard" element={<OnboardPage />} />
+        <Route path="/levels" element={<LevelsPage />} />
       </Routes>
 
 
