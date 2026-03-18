@@ -35,7 +35,7 @@ export const LevelsPage: React.FC = () => {
             ✧ The Signature
             <span className={styles.redactionBar}></span>
           </h2>
-          <div className={styles.tierStatus}>REDACTED</div>
+          <div className={styles.tierStatus}>REVEALING SOON</div>
           <div className={styles.tierDescription}>
             <div className={styles.redactedLine}></div>
             <div className={styles.redactedLine}></div>
