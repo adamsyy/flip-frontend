@@ -37,7 +37,7 @@ export default function WhyFlip() {
             <span className={styles.exclusiveBadge}>THE GAMEPLAN</span>
             <h1>Stop Paying. <br />Start Swapping.</h1>
             <p>
-              Nasriya knows how to cook. Naslen knows how to bike. Instead of paying for a course, they just trade. Nasriya distills her craft; Naslen shares his. A pure exchange of mastery where excellence is the only currency.
+              Nasriya knows how to cook. Naslen knows how to bike. Instead of paying for a course, they just trade. Nasriya teaches him cooking, Naslen teaches her biking. Zero fees. Pure skill swap.
             </p>
             
             <div className={`${styles.miniExample} ${styles.reveal}`}>
