@@ -21,6 +21,7 @@ export const WaitlistForm: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [totalCount, setTotalCount] = useState<number | null>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -68,14 +69,15 @@ export const WaitlistForm: React.FC = () => {
         }),
       });
 
+      const data = await res.json();
       if (!res.ok) {
-        const data = await res.json();
         throw new Error(data.error || 'Something went wrong');
       }
 
+      // Add 100 to the count as requested by the user
+      setTotalCount((data.total_count || 0) + 100);
       setSubmitted(true);
       setFormData({ name: '', email: '', skills: [], primarySkill: '' });
-      setTimeout(() => setSubmitted(false), 5000);
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : 'Failed to join waitlist. Please try again.');
     } finally {
@@ -86,81 +88,94 @@ export const WaitlistForm: React.FC = () => {
   return (
     <section id="waitlist" className={styles.waitlist}>
       <div className={styles.container}>
-        <h2>Join the Waitlist</h2>
-        <p>Be among the first to experience skill swapping in Bangalore</p>
+        {submitted ? (
+          <div className={styles.successContainer}>
+            <div className={styles.successIcon}>✦</div>
+            <h2 className={styles.successTitle}>You're on the list.</h2>
+            <p className={styles.successSubtitle}>Welcome to the inner circle of Bangalore's creative elite.</p>
 
-        {submitted && (
-          <div className={styles.successMessage}>
-            ✓ Thanks for joining! We'll be in touch soon.
-          </div>
-        )}
-
-        {error && (
-          <div className={styles.errorMessage}>
-            ✕ {error}
-          </div>
-        )}
-
-        <form onSubmit={handleSubmit} className={styles.form}>
-          <div className={styles.formGroup}>
-            <label>Name</label>
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleInputChange}
-              placeholder="Your name"
-              required
-            />
-          </div>
-
-          <div className={styles.formGroup}>
-            <label>Email</label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleInputChange}
-              placeholder="your@email.com"
-              required
-            />
-          </div>
-
-          <div className={styles.skillsSection}>
-            <label>Skills I Can Teach</label>
-            <p className={styles.skillsHint}>Selected: {formData.skills.length}/3</p>
-            <div className={styles.skillsGrid}>
-              {PREDEFINED_SKILLS.map(skill => (
-                <div key={skill} className={styles.skillWrapper}>
-                  <button
-                    type="button"
-                    className={`${styles.skillTag} ${formData.skills.includes(skill) ? styles.selected : ''
-                      } ${formData.primarySkill === skill ? styles.primary : ''
-                      }`}
-                    onClick={() => handleSkillToggle(skill)}
-                    disabled={!formData.skills.includes(skill) && formData.skills.length >= 3}
-                  >
-                    {skill}
-                  </button>
-                  {formData.skills.includes(skill) && (
-                    <button
-                      type="button"
-                      className={`${styles.primaryBtn} ${formData.primarySkill === skill ? styles.primaryBtnActive : ''}`}
-                      onClick={() => setPrimary(skill)}
-                      title="Mark as primary"
-                    >
-
-                    </button>
-                  )}
-                </div>
-              ))}
+            <div className={styles.countBadge}>
+              <span className={styles.countNumber}>{totalCount || '...'}</span>
+              <span className={styles.countLabel}>Total Applicants Globally</span>
             </div>
-          </div>
 
-          <button type="submit" className={styles.submitButton} disabled={loading}>
-            {loading ? 'Joining…' : 'Join Waitlist'}
-          </button>
-        </form>
+            <p className={styles.successNote}>We'll reach out as soon as a spot opens up.</p>
+          </div>
+        ) : (
+          <>
+            <h2>Join the Waitlist</h2>
+            <p>Be among the first to experience skill swapping in Bangalore</p>
+
+            {error && (
+              <div className={styles.errorMessage}>
+                ✕ {error}
+              </div>
+            )}
+
+            <form onSubmit={handleSubmit} className={styles.form}>
+              <div className={styles.gridContainer}>
+                <div className={styles.formGroup}>
+                  <label>Name</label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    placeholder="Your name"
+                    required
+                  />
+                </div>
+
+                <div className={styles.formGroup}>
+                  <label>Email</label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    placeholder="your@email.com"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className={styles.skillsSection}>
+                <label>Skills I Can Teach</label>
+                <p className={styles.skillsHint}>Selected: {formData.skills.length}/3</p>
+                <div className={styles.skillsGrid}>
+                  {PREDEFINED_SKILLS.map(skill => (
+                    <div key={skill} className={styles.skillWrapper}>
+                      <button
+                        type="button"
+                        className={`${styles.skillTag} ${formData.skills.includes(skill) ? styles.selected : ''
+                          } ${formData.primarySkill === skill ? styles.primary : ''
+                          }`}
+                        onClick={() => handleSkillToggle(skill)}
+                        disabled={!formData.skills.includes(skill) && formData.skills.length >= 3}
+                      >
+                        {skill}
+                      </button>
+                      {formData.skills.includes(skill) && (
+                        <button
+                          type="button"
+                          className={`${styles.primaryBtn} ${formData.primarySkill === skill ? styles.primaryBtnActive : ''}`}
+                          onClick={() => setPrimary(skill)}
+                          title="Mark as primary"
+                        >
+
+                        </button>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <button type="submit" className={styles.submitButton} disabled={loading}>
+                {loading ? 'Joining…' : 'Join Waitlist'}
+              </button>
+            </form>
+          </>
+        )}
       </div>
     </section>
   );

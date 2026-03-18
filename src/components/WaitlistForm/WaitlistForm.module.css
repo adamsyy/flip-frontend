@@ -244,8 +244,90 @@
   opacity: 0.1;
 }
 
+.gridContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+/* Luxury Success State */
+.successContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  animation: fadeIn 1s ease-out;
+  max-width: 600px;
+  padding: 40px 0;
+}
+
+.successIcon {
+  font-size: 48px;
+  color: #D4AF37;
+  margin-bottom: 8px;
+}
+
+.successTitle {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 64px;
+  line-height: 1;
+  letter-spacing: -3px;
+  margin: 0;
+  color: #000;
+}
+
+.successSubtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  color: #444;
+  font-weight: 300;
+  line-height: 1.6;
+  max-width: 480px;
+}
+
+.countBadge {
+  margin-top: 20px;
+  padding: 40px;
+  background: #000;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.countNumber {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 48px;
+  color: #D4AF37;
+  line-height: 1;
+}
+
+.countLabel {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: #888;
+}
+
+.successNote {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #888;
+  font-style: italic;
+  margin-top: 12px;
+  letter-spacing: 0.2px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 @media (max-width: 768px) {
   .waitlist { padding: 120px 24px; }
+  .gridContainer { grid-template-columns: 1fr; gap: 60px; }
   .container h2 { 
     font-size: 44px; 
     letter-spacing: -2px; 
@@ -253,6 +335,11 @@
   }
   .container > p { font-size: 16px; margin-bottom: 60px; }
   
+  .successTitle { font-size: 48px; }
+  .successSubtitle { font-size: 18px; }
+  .countBadge { padding: 30px; }
+  .countNumber { font-size: 36px; }
+
   .form { gap: 60px; }
   
   .formGroup input {
