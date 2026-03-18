@@ -4,10 +4,10 @@ import styles from './WaitlistForm.module.css';
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:1323';
 
 const PREDEFINED_SKILLS = [
-  'Photography', 'Fitness', 'Motorcycle', 'Dancing', 'Mixology', 'Skateboarding',
+  'Singing', 'Gym', 'Biking', 'Dancing', 'Football', 'Skateboarding',
   'Fashion Styling', 'Running', 'Filmmaking', 'Coffee Culture', 'Makeup',
-  'Music Production', 'Surfing', 'Aerial Yoga', 'DJing', 'Street Art', 'Pilates', 'Vinyl Collecting',
-  'Product Design', 'Biking', 'Kintsugi', 'Wine Tasting', 'Pottery'
+  'Music Production', 'Surfing', 'gokarting', 'DJing', 'Street Art', 'Ukelele', 'Vinyl Finanace',
+  'Product Design', 'Mixology', 'Kintsugi', 'Wine Tasting', 'Pottery'
 ];
 
 export const WaitlistForm: React.FC = () => {
