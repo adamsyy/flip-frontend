@@ -9,7 +9,7 @@
 
 .header {
   text-align: left;
-  margin-bottom: 120px;
+  margin-bottom: 80px;
   max-width: 800px;
 }
 
@@ -36,7 +36,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 40px;
-  margin-bottom: 120px;
+  margin-bottom: 80px;
 }
 
 .tierCard {
@@ -173,7 +173,7 @@
   }
   
   .tierCard {
-    padding: 60px 0;
+    padding: 40px 0;
   }
 }
 
@@ -184,6 +184,15 @@
   }
   
   .container {
-    padding-top: 100px;
+    padding-top: 80px;
+    padding-bottom: 60px;
+  }
+
+  .header {
+    margin-bottom: 40px;
+  }
+
+  .tiersGrid {
+    margin-bottom: 40px;
   }
 }
