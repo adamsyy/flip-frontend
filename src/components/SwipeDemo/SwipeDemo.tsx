@@ -1,22 +1,12 @@
 import { useState, useRef, useEffect } from 'react';
 import { SkillCard } from '../SkillCard/SkillCard';
 import styles from './SwipeDemo.module.css';
+import { INITIAL_CREATORS, Creator } from '../../constants/initialCreators';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:1323';
 
-interface Creator {
-  id: number;
-  name: string;
-  avatar_url: string;
-  skills: string[];
-  primary_skill: string;
-  bio: string;
-  age?: number;
-}
-
-
 export const SwipeDemo: React.FC = () => {
-  const [cards, setCards] = useState<Creator[]>([]);
+  const [cards, setCards] = useState<Creator[]>(INITIAL_CREATORS);
   const [loading, setLoading] = useState(true);
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -27,14 +17,25 @@ export const SwipeDemo: React.FC = () => {
   const autoSwipeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
+    // Pre-fetch images for initial creators immediately
+    INITIAL_CREATORS.forEach(card => {
+      const img = new Image();
+      img.src = card.avatar_url;
+    });
+
     setLoading(true);
     fetch(`${API_URL}/creators`)
       .then(res => res.json())
       .then(data => {
         if (Array.isArray(data)) {
-          setCards(data);
-          // Pre-fetch images to cache them in browser memory
-          data.forEach(card => {
+          // Filter out initial creators from the fetched data to avoid duplicates if they are already in the database
+          const initialIds = new Set(INITIAL_CREATORS.map(c => c.id));
+          const filteredData = data.filter(c => !initialIds.has(c.id));
+          const allCards = [...INITIAL_CREATORS, ...filteredData];
+          setCards(allCards);
+          
+          // Pre-fetch images for new creators to cache them in browser memory
+          filteredData.forEach(card => {
             const img = new Image();
             img.src = card.avatar_url;
           });
@@ -170,7 +171,7 @@ export const SwipeDemo: React.FC = () => {
               onTouchEnd={handleTouchEnd}
               onTouchCancel={handleTouchEnd}
             >
-              {loading ? (
+              {loading && cards.length === 0 ? (
                 <div className={styles.skeletonCard}>
                   <div className={styles.skeletonImage} />
                   <div className={styles.skeletonContent}>

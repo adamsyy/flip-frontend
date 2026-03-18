@@ -2,31 +2,36 @@ import { useState, useEffect } from 'react';
 import styles from './CreatorsPage.module.css';
 import { SEO } from '../SEO/SEO';
 import { CreatorSkeleton } from './CreatorSkeleton';
+import { INITIAL_CREATORS, Creator } from '../../constants/initialCreators';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:1323';
 
-interface Creator {
-  id: number;
-  name: string;
-  avatar_url: string;
-  skills: string[];
-  primary_skill: string;
-  bio: string;
-  age?: number;
-  highlights: string[];
-  insta_link?: string;
-}
-
 export const CreatorsPage = () => {
-  const [creators, setCreators] = useState<Creator[]>([]);
+  const [creators, setCreators] = useState<Creator[]>(INITIAL_CREATORS);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
   useEffect(() => {
     fetch(`${API_URL}/creators`)
       .then(r => r.json())
-      .then(data => { setCreators(data); setLoading(false); })
-      .catch(() => { setError('Failed to load the Elite Circle.'); setLoading(false); });
+      .then(data => {
+        if (Array.isArray(data)) {
+          // Filter out initial creators from the fetched data to avoid duplicates if they are already in the database
+          const initialIds = new Set(INITIAL_CREATORS.map(c => c.id));
+          const filteredData = data.filter(c => !initialIds.has(c.id));
+          setCreators([...INITIAL_CREATORS, ...filteredData]);
+        }
+        setLoading(false);
+      })
+      .catch(() => {
+        // If we have initial creators, don't show a full error, just stop loading
+        if (INITIAL_CREATORS.length > 0) {
+          setLoading(false);
+        } else {
+          setError('Failed to load the Elite Circle.');
+          setLoading(false);
+        }
+      });
   }, []);
 
   useEffect(() => {
@@ -49,7 +54,7 @@ export const CreatorsPage = () => {
     return () => observer.disconnect();
   }, [loading]);
 
-  if (loading) return (
+  if (loading && creators.length === 0) return (
     <div className={styles.creatorsPage}>
       <div className={styles.header}>
         <h1 className={styles.title}>The Elite Circle</h1>
