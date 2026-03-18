@@ -6,7 +6,7 @@ const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:1323';
 const PREDEFINED_SKILLS = [
   'Singing', 'Gym', 'Biking', 'Dancing', 'Football', 'Skateboarding',
   'Fashion Styling', 'Running', 'Filmmaking', 'Coffee Culture', 'Makeup',
-  'Music Production', 'Surfing', 'gokarting', 'DJing', 'Street Art', 'Ukelele', 'Vinyl Finanace',
+  'Music Production', 'Surfing', 'gokarting', 'DJing', 'Street Art', 'Ukelele', 'Finance',
   'Product Design', 'Mixology', 'Kintsugi', 'Wine Tasting', 'Pottery'
 ];
 
