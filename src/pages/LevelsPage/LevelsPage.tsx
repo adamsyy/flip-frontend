@@ -31,17 +31,12 @@ export const LevelsPage: React.FC = () => {
         {/* Level 2: The Signature */}
         <div className={`${styles.tierCard} ${styles.unrevealedCard}`}>
           <span className={styles.tierLevel}>Level 02</span>
-          <h2 className={styles.tierName}>
-            ✧ The Signature
-            <span className={styles.redactionBar}></span>
-          </h2>
+          <h2 className={styles.tierName}>✧ The Signature</h2>
           <div className={styles.tierStatus}>REVEALING SOON</div>
-          <div className={styles.tierDescription}>
-            <div className={styles.redactedLine}></div>
-            <div className={styles.redactedLine}></div>
-            <div className={styles.redactedLine}></div>
-            <div className={styles.redactedLine}></div>
-          </div>
+          <p className={styles.tierDescription}>
+            The professional standard for established masters within the creative guilds. 
+            Access and visibility protocols for the Signature tier are restricted to verified members only.
+          </p>
         </div>
 
         {/* Level 3: The Elite Circle */}
