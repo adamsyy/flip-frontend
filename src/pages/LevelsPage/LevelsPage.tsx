@@ -1,8 +1,22 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './LevelsPage.module.css';
 import { SEO } from '../../components/SEO/SEO';
 
 export const LevelsPage: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleApplyClick = () => {
+    navigate('/');
+    // Use a small delay to ensure the HomePage has rendered before trying to scroll
+    setTimeout(() => {
+      const element = document.getElementById('waitlist');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 120);
+  };
+
   return (
     <main className={styles.container}>
       <SEO 
@@ -25,7 +39,7 @@ export const LevelsPage: React.FC = () => {
             The foundation of our movement. Entry point for all vetted creative voices in the city. 
             Connect, swap, and build your reputation within the broader Flip ecosystem.
           </p>
-          <button className={styles.ctaBtn} onClick={() => window.location.href = '/onboard'}>Apply for Entry</button>
+          <button className={styles.ctaBtn} onClick={handleApplyClick}>Join the Waitlist</button>
         </div>
 
         {/* Level 2: The Signature */}
