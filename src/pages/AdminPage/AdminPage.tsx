@@ -23,20 +23,34 @@ export const AdminPage: React.FC = () => {
 
   const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:1323/api/v1';
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (password === '123') {
-      setIsAuthenticated(true);
-      fetchPendingUsers();
-    } else {
-      alert('Invalid password');
+    try {
+      const resp = await fetch(`${API_BASE}/admin/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password })
+      });
+
+      if (resp.ok) {
+        setIsAuthenticated(true);
+        fetchPendingUsers();
+      } else {
+        alert('Invalid password');
+      }
+    } catch (err: any) {
+      alert('Error during login: ' + err.message);
     }
   };
 
   const fetchPendingUsers = async () => {
     setLoading(true);
     try {
-      const resp = await fetch(`${API_BASE}/admin/verifications/pending`);
+      const resp = await fetch(`${API_BASE}/admin/verifications/pending`, {
+        headers: {
+          'X-Admin-Password': password
+        }
+      });
       if (!resp.ok) throw new Error('Failed to fetch from backend');
       const data = await resp.json();
       setUsers(data || []);
@@ -51,7 +65,10 @@ export const AdminPage: React.FC = () => {
     try {
       const resp = await fetch(`${API_BASE}/admin/verifications/verify`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'X-Admin-Password': password
+        },
         body: JSON.stringify({ firebase_uid: uid, approve })
       });
 
