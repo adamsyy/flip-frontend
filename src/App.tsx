@@ -9,6 +9,7 @@ import { OnboardPage } from './pages/OnboardPage/OnboardPage';
 import WhyFlip from './pages/WhyFlip/WhyFlip';
 import { LevelsPage } from './pages/LevelsPage/LevelsPage';
 import { LegalPage } from './pages/LegalPage/LegalPage';
+import { AdminPage } from './pages/AdminPage/AdminPage';
 import { SEO } from './components/SEO/SEO';
 import styles from './App.module.css';
 
@@ -45,6 +46,7 @@ function App() {
         <Route path="/creators" element={<CreatorsPage />} />
         <Route path="/onboard" element={<OnboardPage />} />
         <Route path="/levels" element={<LevelsPage />} />
+        <Route path="/admin" element={<AdminPage />} />
       </Routes>
 
 
