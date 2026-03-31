@@ -26,7 +26,7 @@ export const AdminPage: React.FC = () => {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const resp = await fetch(`${API_BASE}/admin/login`, {
+      const resp = await fetch(`${API_BASE}/api/v1/admin/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ password })
@@ -65,7 +65,7 @@ export const AdminPage: React.FC = () => {
     try {
       const resp = await fetch(`${API_BASE}/admin/verifications/verify`, {
         method: 'POST',
-        headers: { 
+        headers: {
           'Content-Type': 'application/json',
           'X-Admin-Password': password
         },
@@ -73,7 +73,7 @@ export const AdminPage: React.FC = () => {
       });
 
       if (!resp.ok) throw new Error('Failed to update status on backend');
-      
+
       // Remove from list
       setUsers(users.filter(u => u.firebase_uid !== uid));
     } catch (err: any) {
@@ -147,9 +147,9 @@ export const AdminPage: React.FC = () => {
                     <h3>{user.name}</h3>
                     <p>{user.identity} • {user.location}</p>
                   </div>
-                  <a 
-                    href={`https://otakfsymqqbqlbahjldp.supabase.co/storage/v1/object/public/images/profile_image_${user.firebase_uid}`} 
-                    target="_blank" 
+                  <a
+                    href={`https://otakfsymqqbqlbahjldp.supabase.co/storage/v1/object/public/images/profile_image_${user.firebase_uid}`}
+                    target="_blank"
                     rel="noreferrer"
                     className={styles.idLink}
                   >
@@ -174,15 +174,15 @@ export const AdminPage: React.FC = () => {
                 </div>
 
                 <div className={styles.cardActions}>
-                  <button 
-                    onClick={() => handleVerify(user.firebase_uid, false)} 
+                  <button
+                    onClick={() => handleVerify(user.firebase_uid, false)}
                     className={styles.rejectBtn}
                   >
                     <XCircle size={18} />
                     Reject
                   </button>
-                  <button 
-                    onClick={() => handleVerify(user.firebase_uid, true)} 
+                  <button
+                    onClick={() => handleVerify(user.firebase_uid, true)}
                     className={styles.approveBtn}
                   >
                     <CheckCircle size={18} />
