@@ -46,7 +46,7 @@ export const AdminPage: React.FC = () => {
   const fetchPendingUsers = async () => {
     setLoading(true);
     try {
-      const resp = await fetch(`${API_BASE}/admin/verifications/pending`, {
+      const resp = await fetch(`${API_BASE}/api/v1/admin/verifications/pending`, {
         headers: {
           'X-Admin-Password': password
         }
@@ -63,7 +63,7 @@ export const AdminPage: React.FC = () => {
 
   const handleVerify = async (uid: string, approve: boolean) => {
     try {
-      const resp = await fetch(`${API_BASE}/admin/verifications/verify`, {
+      const resp = await fetch(`${API_BASE}/api/v1/admin/verifications/verify`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
